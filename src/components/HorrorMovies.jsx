@@ -10,7 +10,6 @@ function HorrorMovies({ title, id }) {
   const popularMovies = movies
     .filter((movie) => movie.type === 5)
     .map((movie, id) => {
-      console.log(movie);
       return (
         <>
           <Movie key={id} movie={movie} />
