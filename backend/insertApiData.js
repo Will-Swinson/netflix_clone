@@ -121,3 +121,67 @@ app.get("/api/movies/set", async (req, res) => {
     res.status(500).json({ err: err.message });
   }
 });
+
+app.get("/api/movies/set", async (req, res) => {
+  try {
+    const result = await axios.get(requestsMovies.requestHorrorMovies);
+    console.log("result", result.data.results);
+    const movieData = result.data.results.map((movie) => {
+      return {
+        adult: movie.adult,
+        backdrop_path: movie.backdrop_path,
+        genre_ids: movie.genre_ids,
+        id: movie.id,
+        original_language: movie.original_language,
+        original_title: movie.original_title,
+        overview: movie.overview,
+        popularity: movie.popularity,
+        poster_path: movie.poster_path,
+        release_date: movie.release_date,
+        title: movie.title,
+        vote_average: movie.vote_average,
+        vote_count: movie.vote_count,
+      };
+    });
+
+    for (const movie of movieData) {
+      // Insert data into database
+      await sql`
+    INSERT INTO api_data (
+      adult,
+      backdrop_path,
+        genre_ids,
+        id,
+        type,
+        title,
+        original_language,
+        original_title,
+        overview,
+        popularity,
+        poster_path,
+        release_date,
+      vote_average,
+      vote_count
+      ) VALUES (
+        ${movie.adult},
+      ${movie.backdrop_path},
+      ${movie.genre_ids},
+      ${movie.id},
+      ${5},
+      ${movie.title},
+      ${movie.original_language},
+      ${movie.original_title},
+      ${movie.overview},
+      ${movie.popularity},
+      ${movie.poster_path},
+      ${movie.release_date},
+      ${movie.vote_average},
+      ${movie.vote_count}
+      ) ON CONFLICT (id) DO NOTHING RETURNING *;`;
+    }
+
+    res.status(200).json({ status: "success", data: movieData });
+  } catch (err) {
+    res.status(500).json({ err: err.message });
+  }
+});
