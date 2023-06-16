@@ -4,6 +4,8 @@ import postgres from "postgres";
 
 dotenv.config();
 
+console.log(process.env.DATABASE_URL, process.env.PORT);
+
 export const sql = postgres(process.env.DATABASE_URL);
 
 const PORT = process.env.PORT || 5000;

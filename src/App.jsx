@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getAllMovieAndShows } from "./components/getMovieData.jsx";
+import {
+  getAllMovieAndShows,
+  getPopularMovies,
+  getTopRatedMovies,
+} from "./components/getMovieData.jsx";
 import { useMovies } from "./context/MovieProvider.jsx";
 import Header from "./Header";
 import Hero from "./Hero";
@@ -13,6 +17,10 @@ function App() {
     // Fetch data from API
     getAllMovieAndShows().then((data) => {
       setMovies(data);
+    });
+
+    getTopRatedMovies().then((data) => {
+      console.log(data);
     });
   }, []);
 
