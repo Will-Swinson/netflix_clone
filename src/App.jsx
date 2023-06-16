@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getAllMovieAndShows } from "./components/getMovieData.jsx";
-import Header from "./header";
+import Header from "./Header";
 import Hero from "./Hero";
 import Movies from "./Movies";
 import "./App.css";
-
 
 function App() {
   useEffect(() => {
@@ -14,9 +13,6 @@ function App() {
     });
   }, []);
 
-
-
-
   return (
     <>
       <Header />
@@ -24,7 +20,6 @@ function App() {
       <Movies />
     </>
   );
-
 }
 
 export default App;
