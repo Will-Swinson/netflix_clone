@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS my_list,users, movie_data;
+DROP TABLE IF EXISTS my_list,users, api_data;
 
 
 CREATE TABLE users
@@ -22,10 +22,25 @@ CREATE TABLE my_list
   PRIMARY KEY (id)
 );
 
-CREATE TABLE movie_data
+CREATE TABLE api_data
 (
-  deck_id INT NOT NULL,
-  card_id     TEXT NOT NULL,
-  FOREIGN KEY (deck_id) REFERENCES decks (id),
-  PRIMARY KEY (deck_id, card_id)
+  id            INT ,
+  type          INT,
+  name          TEXT,
+  adult         BOOLEAN,
+  backdrop_path TEXT,
+  genre_ids     INT[],
+  media_type    TEXT,
+  origin_country TEXT[],
+  original_language TEXT,
+  original_title TEXT,
+  overview      TEXT,
+  popularity    FLOAT,
+  poster_path   TEXT,
+  release_date  TEXT,
+  title         TEXT,
+  video         BOOLEAN,
+  vote_average  FLOAT,
+  vote_count    INT,
+  PRIMARY KEY (id)
 );

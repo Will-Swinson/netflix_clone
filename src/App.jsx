@@ -1,23 +1,40 @@
 import React, { useState, useEffect } from "react";
+import { getAllMovieAndShows } from "./components/getMovieData.jsx";
+import { useMovies } from "./context/MovieProvider.jsx";
+import Header from "./Header";
+import Hero from "./Hero";
+import Movies from "./components/Movies.jsx";
+import "./App.css";
 
 function App() {
+  const { setMovies } = useMovies();
+
   useEffect(() => {
     // Fetch data from API
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NTFhM2FhYzZhYTRhNzljZmI5ZTMzMDE3YWM4OGJlMSIsInN1YiI6IjY0OGExYTg2ZDJiMjA5MDBjYTIyM2Y3NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.db5tNXpuST7ql4euB9I4ezjn81JnfchBUnoo4ZIDcK0",
-      },
-    };
-
-    fetch("https://api.themoviedb.org/3/discover/movie", options)
-      .then((response) => response.json())
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+    getAllMovieAndShows().then((data) => {
+      setMovies(data);
+    });
   }, []);
-  return <></>;
+
+  return (
+    <>
+      <Header />
+      <Hero />
+      <Movies id={1} title={"Popular"} />
+      <Movies id={3} title={"Top Rated"} />
+      <Movies id={2} title={"Upcoming"} />
+      <Movies id={4} title={"Trending"} />
+      <Movies id={5} title={"Horror"} />
+      <Movies id={6} title={"Trending Shows"} />
+    </>
+  );
 }
 
 export default App;
+
+{
+  /* <img
+  src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+  alt=""
+/>; */
+}
