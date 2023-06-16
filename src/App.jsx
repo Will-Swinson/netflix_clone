@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-  getAllMovieAndShows,
-  getPopularMovies,
-  getTopRatedMovies,
-} from "./components/getMovieData.jsx";
+import { getAllMovieAndShows } from "./components/getMovieData.jsx";
 import { useMovies } from "./context/MovieProvider.jsx";
 import Header from "./Header";
 import Hero from "./Hero";
-import Movies from "./components/Movies.jsx";
+import Rows from "./components/Rows";
 import "./App.css";
 
 function App() {
@@ -18,22 +14,13 @@ function App() {
     getAllMovieAndShows().then((data) => {
       setMovies(data);
     });
-
-    getTopRatedMovies().then((data) => {
-      console.log(data);
-    });
   }, []);
 
   return (
     <>
       <Header />
       <Hero />
-      <Movies id={1} title={"Popular"} />
-      <Movies id={3} title={"Top Rated"} />
-      <Movies id={2} title={"Upcoming"} />
-      <Movies id={4} title={"Trending"} />
-      <Movies id={5} title={"Horror"} />
-      <Movies id={6} title={"Trending Shows"} />
+      <Rows />
     </>
   );
 }
