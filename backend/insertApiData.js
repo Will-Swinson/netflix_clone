@@ -52,11 +52,13 @@ export async function getHorrorMovies() {
 
 // Extracting data from API
 
+// TV SHOW QUERIES
 app.get("/api/movies/set", async (req, res) => {
   try {
-    const result = await axios.get(requestsMovies.requestTrendingShows);
+    const result = await axios.get(requestsMovies.requestPopularMovies);
 
     const movieData = result.data.results.map((movie) => {
+      console.log(movie);
       return {
         adult: movie.adult,
         backdrop_path: movie.backdrop_path,
@@ -64,18 +66,22 @@ app.get("/api/movies/set", async (req, res) => {
         id: movie.id,
         media_type: movie.media_type,
         name: movie.name,
-        origin_country: movie.origin_country[0],
+
+        // Uncomment for the TV SHOWS
+        // origin_country: movie.origin_country[0],
+
         original_language: movie.original_language,
         original_title: movie.original_name,
         overview: movie.overview,
         popularity: movie.popularity,
         poster_path: movie.poster_path,
-        release_date: movie.first_air_date,
+        release_date: movie.first_air_date || movie.release_date,
         vote_average: movie.vote_average,
         vote_count: movie.vote_count,
       };
     });
 
+    // ADD ORIGIN COUNTRY TO SQL QUERY AFTER NAME ARRAY[${movie.origin_country}],
     for (const movie of movieData) {
       // Insert data into database
       await sql`
@@ -87,7 +93,6 @@ app.get("/api/movies/set", async (req, res) => {
         media_type,
         type,
         name,
-        origin_country,
         original_language,
         original_title,
         overview,
@@ -102,9 +107,73 @@ app.get("/api/movies/set", async (req, res) => {
       ${movie.genre_ids},
       ${movie.id},
       ${movie.media_type},
-      ${6},
-      ${movie.name},
-      ARRAY[${movie.origin_country}],
+      ${1},
+      ${movie.name}, 
+      ${movie.original_language},
+      ${movie.original_title},
+      ${movie.overview},
+      ${movie.popularity},
+      ${movie.poster_path},
+      ${movie.release_date},
+      ${movie.vote_average},
+      ${movie.vote_count}
+      ) ON CONFLICT (id) DO NOTHING RETURNING *;`;
+    }
+
+    res.status(200).json({ status: "success", data: movieData });
+  } catch (err) {
+    res.status(500).json({ err: err.message });
+  }
+});
+
+// MOVIE QUERIES
+app.get("/api/movies/set", async (req, res) => {
+  try {
+    const result = await axios.get(requestsMovies.requestPopularMovies);
+    console.log("result", result.data.results);
+    const movieData = result.data.results.map((movie) => {
+      return {
+        adult: movie.adult,
+        backdrop_path: movie.backdrop_path,
+        genre_ids: movie.genre_ids,
+        id: movie.id,
+        original_language: movie.original_language,
+        original_title: movie.original_title,
+        overview: movie.overview,
+        popularity: movie.popularity,
+        poster_path: movie.poster_path,
+        release_date: movie.release_date,
+        title: movie.title,
+        vote_average: movie.vote_average,
+        vote_count: movie.vote_count,
+      };
+    });
+
+    for (const movie of movieData) {
+      // Insert data into database
+      await sql`
+    INSERT INTO api_data (
+      adult,
+      backdrop_path,
+        genre_ids,
+        id,
+        type,
+        title,
+        original_language,
+        original_title,
+        overview,
+        popularity,
+        poster_path,
+        release_date,
+      vote_average,
+      vote_count
+      ) VALUES (
+        ${movie.adult},
+      ${movie.backdrop_path},
+      ${movie.genre_ids},
+      ${movie.id},
+      ${1},
+      ${movie.title},
       ${movie.original_language},
       ${movie.original_title},
       ${movie.overview},
