@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { getAllMovieAndShows } from "./components/getMovieData.jsx";
+import { useMovies } from "./context/MovieProvider.jsx";
 import Header from "./Header";
 import Hero from "./Hero";
-import Movies from "./Movies";
+import Movies from "./components/Movies.jsx";
 import "./App.css";
 
 function App() {
+  const { setMovies } = useMovies();
+
   useEffect(() => {
     // Fetch data from API
     getAllMovieAndShows().then((data) => {
-      console.log(data);
+      setMovies(data);
     });
   }, []);
 
