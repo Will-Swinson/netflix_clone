@@ -3,12 +3,12 @@ import { useMovies } from "../context/MovieProvider.jsx";
 import Movie from "./Movie.jsx";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
-function Movies() {
+function Movies({ title, id }) {
   const { movies } = useMovies();
 
   // Filter movies by type for popular movies
   const popularMovies = movies
-    .filter((movie) => movie.type === 1)
+    .filter((movie) => movie.type === 2)
     .map((movie, id) => {
       console.log(movie);
       return (
@@ -19,18 +19,18 @@ function Movies() {
     });
 
   function scrollLeft() {
-    const slider = document.getElementById("slider");
+    const slider = document.getElementById("slider" + id);
     slider.scrollLeft -= 500;
   }
 
   function scrollRight() {
-    const slider = document.getElementById("slider");
+    const slider = document.getElementById("slider" + id);
     slider.scrollLeft += 500;
   }
 
   return (
     <>
-      <h2 className="text-white font-bold md:text-xl p-4">Popular</h2>
+      <h2 className="text-white font-bold md:text-xl p-4">{title}</h2>
       <div className="relative flex items-center group">
         <MdChevronLeft
           onClick={scrollLeft}
@@ -38,7 +38,7 @@ function Movies() {
           size={40}
         />
         <div
-          id={"slider"}
+          id={"slider" + id}
           className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
         >
           {popularMovies}

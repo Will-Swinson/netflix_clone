@@ -20,7 +20,12 @@ function App() {
     <>
       <Header />
       <Hero />
-      <Movies />
+      <Movies id={1} title={"Popular"} />
+      <Movies id={3} title={"Top Rated"} />
+      <Movies id={2} title={"Upcoming"} />
+      <Movies id={4} title={"Trending"} />
+      <Movies id={5} title={"Horror"} />
+      <Movies id={6} title={"Trending Shows"} />
     </>
   );
 }

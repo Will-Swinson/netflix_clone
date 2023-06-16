@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, id }) => {
   const [like, setLike] = useState(false);
   return (
     <div className="w-[160px] sm:w-[200px] md:w-[250px] lg:w-[280px] inline-block cursor-pointer relative p-2">
