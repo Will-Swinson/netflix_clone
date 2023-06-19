@@ -4,28 +4,42 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 function Header() {
   return (
-    <div className="bg-black fixed bg-opacity-90 z-10 ">
-      <div className="flex w-screen h-20 justify-between items-center text-white text-lg">
-        <div className="flex">
+    <div className="fixed z-10 bg-black bg-opacity-90">
+      <div className="flex items-center justify-between w-screen h-20 text-lg text-white">
+        <div className="flex ">
           <img
-            className="w-36 h-10 ml-12"
+            className="h-10 ml-6 sm:ml-12 w-28 sm:w-36"
             src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png"
             alt="netflix-logo"
           />
-          <ul className="flex items-center ml-10">
-            <li className="ml-4">Home</li>
-            <li className="ml-4">TV Shows</li>
-            <li className="ml-4">Movies</li>
-            <li className="ml-4">New & Popular</li>
-            <li className="ml-4">My List</li>
-            <li className="ml-4">Browse by Languages</li>
+        </div>
+        <div className="items-center justify-between hidden w-[1000px] h-full sm:flex sm:w-1/3">
+          <ul className="flex items-center w-full ml-10">
+            <li className="flex items-center h-full ml-4 text-xs lg:text-xl">
+              Home
+            </li>
+            <li className="flex items-center h-full ml-4 text-xs lg:text-xl">
+              TV Shows
+            </li>
+            <li className="flex items-center ml-4 text-xs lg:text-xl">
+              Movies
+            </li>
+            <li className="flex items-center ml-4 text-xs lg:text-xl">
+              New & Popular
+            </li>
+            <li className="flex items-center ml-4 text-xs lg:text-xl">
+              My List
+            </li>
+            <li className="flex items-center ml-4 text-xs lg:text-xl">
+              Browse by Languages
+            </li>
           </ul>
         </div>
         <div className="flex items-center">
-          <AiOutlineSearch />
-          <ul className="flex items-center">
-            <li className="ml-4">Kids</li>
-            <li className="ml-4">DVD</li>
+          <AiOutlineSearch className="w-6 h-6 ml-2 sm:ml-4" />
+          <ul className="flex items-center hidden sm:flex">
+            <li className="ml-2 sm:ml-4">Kids</li>
+            <li className="ml-2 sm:ml-4">DVD</li>
           </ul>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +47,7 @@ function Header() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 ml-4"
+            className="w-6 h-6 ml-2 sm:ml-4"
           >
             <path
               strokeLinecap="round"
@@ -42,7 +56,7 @@ function Header() {
             />
           </svg>
           <img
-            className="w-10 h-10 ml-4 mr-12"
+            className="w-8 h-8 ml-2 mr-6 sm:ml-4 sm:mr-12"
             src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
             alt=""
           />
