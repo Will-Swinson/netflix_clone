@@ -1,6 +1,7 @@
 import { sql } from "../server.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import sendEmail from "../nodemailer/nodeMailer.js";
 
 // Get environment variables
 dotenv.config();

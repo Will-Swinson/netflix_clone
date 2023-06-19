@@ -5,7 +5,12 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Rows from "./components/Rows";
 import "./App.css";
-
+import NetflixProfile from "./components/NetflixProfile.jsx";
+import LandingPage from "./pages/LandingPage.jsx";
+import NetflixIntro from "./components/NetflixIntro.jsx";
+import SignInPage from "./pages/SignInPage.jsx";
+import SignUpPlanPage2 from "./pages/SignUpPlanPage2.jsx";
+import SignUpPlanPage1 from "./pages/SignUpPlanPage1.jsx";
 function App() {
   const { setMovies } = useMovies();
 
@@ -18,9 +23,14 @@ function App() {
 
   return (
     <>
-      <Header />
+      <SignUpPlanPage1 />
+      {/* <SignInPage /> */}
+      {/* <Header />
       <Hero />
-      <Rows />
+      <Rows /> */}
+      {/* <LandingPage /> */}
+      {/* <NetflixProfile /> */}
+      {/* <NetflixIntro /> */}
     </>
   );
 }
