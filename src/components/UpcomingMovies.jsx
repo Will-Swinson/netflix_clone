@@ -10,7 +10,6 @@ function UpcomingMovies({ title, id }) {
   const upcomingMovies = movies
     .filter((movie) => movie.type === 3)
     .map((movie, id) => {
-      console.log(movie);
       return (
         <>
           <Movie key={id} movie={movie} />

@@ -7,7 +7,7 @@ const Movie = ({ movie, id }) => {
   return (
     <div className="w-[160px] sm:w-[200px] md:w-[250px] lg:w-[280px] inline-block cursor-pointer relative p-2">
       <img
-        className="w-full h-auto block rounded-md"
+        className="w-full h-auto block rounded-sm"
         src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
         alt={movie?.title}
       />

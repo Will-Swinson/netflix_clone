@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getAllMovieAndShows } from "./components/getMovieData.jsx";
 import { useMovies } from "./context/MovieProvider.jsx";
-import Header from "./Header";
-import Hero from "./Hero";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 import Rows from "./components/Rows";
 import "./App.css";
 import NetflixProfile from "./components/NetflixProfile.jsx";
