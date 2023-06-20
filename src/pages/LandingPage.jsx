@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { BsGlobe2 } from "react-icons/bs";
-import bluePurpleGradientBackground from "../../public/download.jfif";
-import popcornImg from "../../public/popcorn_image.png";
-import appleVideoImg from "../../public/device-pile.png";
-import griddyGif from "../../public/griddy-gif.gif";
-import kidImg from "../../public/kid-img.png";
-import phoneImg from "../../public/phone-img.jpg";
+import bluePurpleGradientBackground from "../assets/download.jfif";
+import popcornImg from "../assets/popcorn_image.png";
+import appleVideoImg from "../assets/device-pile.png";
+import griddyGif from "../assets/griddy-gif.gif";
+import kidImg from "../assets/kid-img.png";
+import phoneImg from "../assets/phone-img.jpg";
 import { IoIosArrowForward } from "react-icons/io";
 
-import FrequentlyAsked from "./FrequentlyAsked";
-import FrequentlyAskedButton from "./FrequentlyAskedButton";
+import FrequentlyAsked from "../components/FrequentlyAsked";
+import FrequentlyAskedButton from "../components/FrequentlyAskedButton";
 
 export default function LandingPage() {
   const [isDropped, setIsDropped] = useState({
@@ -49,7 +49,7 @@ export default function LandingPage() {
             <select className="flex justify-center items-center selector-class h-8 mr-2 w-[120px] rounded text-white bg-black bg-opacity-50 border-[0.5px] border-white text-[14px] font-bold text-center">
               <option>English</option>
             </select>
-            <button className="h-8 bg-[rgb(229,9,20)] hover:bg-red-700 w-[75px] rounded text-white text-[14px] font-bold text-center ">
+            <button className="h-8 whitespace-nowrap bg-[rgb(229,9,20)] hover:bg-red-700 w-[75px] rounded text-white text-[14px] font-bold text-center ">
               Sign In
             </button>
           </div>
