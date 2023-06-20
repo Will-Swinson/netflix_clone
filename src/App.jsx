@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getAllMovieAndShows } from "./components/getMovieData.jsx";
+import { getAllMovieAndShows } from "./utils/getMovieData.jsx";
 import { useMovies } from "./context/MovieProvider.jsx";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Rows from "./components/Rows";
-import "./App.css";
-import NetflixProfile from "./components/NetflixProfile.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
-import NetflixIntro from "./components/NetflixIntro.jsx";
 import SignInPage from "./pages/SignInPage.jsx";
-import SignUpPlanPage2 from "./pages/SignUpPlanPage2.jsx";
-import SignUpPlanPage1 from "./pages/SignUpPlanPage1.jsx";
+import MovieHomePage from "./pages/MovieHomePage.jsx";
+import SignUpPage2 from "./components/SignUpPage2.jsx";
+import "./App.css";
 function App() {
   const { setMovies } = useMovies();
 
@@ -23,14 +18,9 @@ function App() {
 
   return (
     <>
-      <SignUpPlanPage1 />
       {/* <SignInPage /> */}
-      {/* <Header />
-      <Hero />
-      <Rows /> */}
-      {/* <LandingPage /> */}
-      {/* <NetflixProfile /> */}
-      {/* <NetflixIntro /> */}
+      {/* <MovieHomePage /> */}
+      <LandingPage />
     </>
   );
 }
