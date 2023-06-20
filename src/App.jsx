@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getAllMovieAndShows } from "./components/getMovieData.jsx";
+import { getAllMovieAndShows } from "./utils/getMovieData.jsx";
 import { useMovies } from "./context/MovieProvider.jsx";
-import Header from "./Header";
-import Hero from "./Hero";
-import Rows from "./components/Rows";
+import LandingPage from "./pages/LandingPage.jsx";
+import SignInPage from "./pages/SignInPage.jsx";
+import MovieHomePage from "./pages/MovieHomePage.jsx";
+import SignUpPage2 from "./components/SignUpPage2.jsx";
 import "./App.css";
-
 function App() {
   const { setMovies } = useMovies();
 
@@ -18,9 +18,9 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Hero />
-      <Rows />
+      {/* <SignInPage /> */}
+      {/* <MovieHomePage /> */}
+      <LandingPage />
     </>
   );
 }
