@@ -8,7 +8,7 @@ import ModalContent from "./ModalContent";
 
 function Hero() {
   const { movies } = useMovies();
-  console.log("movies", movies);
+  console.log("movies");
   const blackMirror = movies[0];
 
   return (
