@@ -10,11 +10,7 @@ function UpcomingMovies({ title, id }) {
   const upcomingMovies = movies
     .filter((movie) => movie.type === 3)
     .map((movie, id) => {
-      return (
-        <>
-          <Movie key={id} movie={movie} />
-        </>
-      );
+      return <Movie key={id} movie={movie} />;
     });
 
   function scrollLeft() {
