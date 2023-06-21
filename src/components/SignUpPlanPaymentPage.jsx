@@ -1,7 +1,14 @@
 import React from "react";
-import computerImg from "../assets/devices-img.png";
+import lockImg from "../assets/Lock.png";
+import {
+  FaCcVisa,
+  FaCcMastercard,
+  FaCcDiscover,
+  FaCcAmex,
+} from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 
-export default function SignUpPlanPage1() {
+export default function SignUpPlanPaymentPage() {
   return (
     <div className="flex flex-col h-screen">
       <nav className="nav nav-3">
@@ -17,22 +24,40 @@ export default function SignUpPlanPage1() {
         </a>
       </nav>
       <section className="flex items-start justify-center h-full">
-        <form className="flex flex-col items-center justify-center mt-20 ">
-          <img src={computerImg} className="w-[275px] mb-10" />
-          <p className="flex text-xs ">
-            STEP&nbsp;<p className="font-bold">1&nbsp;</p>OF&nbsp;{" "}
-            <p className="font-bold">3</p>
-          </p>
-          <h2 className="flex-wrap mt-2 mb-4 text-3xl font-bold text-center whitespace-normal w-96">
-            Finish setting up your account
-          </h2>
-          <p className="text-xl font-semibold w-[330px] text-center">
-            Netflix is personalized for you. Create a password to start watching
-            Netflix.
-          </p>
-          <button className="w-full rounded mt-6 h-[75px] text-3xl font-semibold text-white bg-netflix-red">
-            Next
-          </button>
+        <form className="flex flex-col items-center justify-center w-full mx-auto mt-20 ">
+          <div className="flex flex-col items-center justify-center w-1/2">
+            <img src={lockImg} className="mb-8 w-14" />
+            <p className="flex text-md ">
+              STEP&nbsp;<p className="font-bold">3&nbsp;</p>OF&nbsp;{" "}
+              <p className="font-bold">3</p>
+            </p>
+            <h2 className="w-full mt-2 mb-4 text-3xl font-bold text-center whitespace-normal ">
+              Choose how to pay.
+            </h2>
+            <p className="text-xl w-[480px] font-semibold text-center mb-6">
+              Your payment is encrypted and you can change how you pay anytime.
+            </p>
+            <p className="w-[300px] text-xl font-bold text-center">
+              Secure for peace of mind. Cancel easily online.
+            </p>
+            <div className="flex flex-col w-full mt-6">
+              <p className="flex justify-end w-full mb-2">
+                End-to-end encrypted 🔒
+              </p>
+              <button className="w-full rounded h-[75px] mb-2 border-4 hover:border-2 border-gray-400 bg-white text-3xl justify-start font-semibold text-black flex">
+                <div className="flex justify-between w-full ml-6">
+                  <div className="flex w-full">
+                    <p className="text-lg font-bold">Credit or Debit Card</p>
+                    <FaCcVisa className="ml-2" />
+                    <FaCcMastercard className="ml-2" />
+                    <FaCcDiscover className="ml-2" />
+                    <FaCcAmex className="ml-2" />
+                  </div>
+                  <IoIosArrowForward size={30} />
+                </div>
+              </button>
+            </div>
+          </div>
         </form>
       </section>
       <footer className="footer footer-gray margin-top-1">

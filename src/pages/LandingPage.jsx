@@ -40,7 +40,7 @@ export default function LandingPage() {
           height: "55vh",
         }}
       >
-        <navbar className="flex relative w-full h-[50px] xl:h-[100px] justify-between items-center ">
+        <nav className="flex relative w-full h-[50px] xl:h-[100px] justify-between items-center ">
           <div className="h-full w-[120px] xl:w-[175px] p-2 ml-6 xl:ml-[190px] mt-6 ">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png" />
           </div>
@@ -53,7 +53,7 @@ export default function LandingPage() {
               Sign In
             </button>
           </div>
-        </navbar>
+        </nav>
         <div className=" text-white justify-center absolute w-full mx-auto top-[36%]  ">
           <div className="flex flex-col items-center justify-center text-white">
             <h2 className="mb-2 text-xl font-bold text-center md:text-3xl xl:text-5xl">

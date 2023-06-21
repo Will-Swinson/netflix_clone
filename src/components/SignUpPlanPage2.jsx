@@ -1,8 +1,8 @@
 import React from "react";
 import "../signup.css";
-const SignUpPlanPage2 = () => {
+export default function SignUpPlanPage2() {
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <nav className="nav nav-3">
         <a href="">
           <img
@@ -15,230 +15,33 @@ const SignUpPlanPage2 = () => {
           Sign Out
         </a>
       </nav>
-
-      <section className="container-table margin-inline">
-        <div className="plan-head">
-          <h2>step 2 of 3</h2>
-          <h1>Choose the plan that’s right for you</h1>
-        </div>
-        <div className="plan-list">
-          <div className="choose-plan">
-            <i className="fas fa-check text-check"></i>
-            <p>Watch all you want. Ad-free.</p>
-          </div>
-          <div className="choose-plan">
-            <i className="fas fa-check text-check"></i>
-            <p>Recommendations just for you.</p>
-          </div>
-          <div className="choose-plan">
-            <i className="fas fa-check text-check"></i>
-            <p>Change or cancel your plan anytime.</p>
-          </div>
-        </div>
-
-        <div className="table-res">
-          <div className="text-absolute">
-            <p>Monthly price</p>
-            <p>Video quality</p>
-            <p>Resolution</p>
-            <p>Devices you can use to watch</p>
-          </div>
-
-          <div className="tab-hidden hide">
-            <input
-              className="tab-input-none"
-              type="radio"
-              name="radiotab"
-              id="tab-1"
-            />
-
-            <div className="label">
-              <label className="tab-label text-table-head" htmlFor="tab-1">
-                None
-              </label>
-            </div>
-
-            <div className="content-list hide">
-              <p className="text-content-1">Monthly price</p>
-              <p className="text-content-1">Video quality</p>
-              <p className="text-content-1">Resolution</p>
-              <p className="text-content-1">Devices you can use to watch</p>
-            </div>
-          </div>
-
-          <div>
-            <input
-              className="tab-input"
-              type="radio"
-              name="radiotab"
-              id="tab-2"
-            />
-
-            <div className="label">
-              <label className="tab-label text-table-head" htmlFor="tab-2">
-                Mobile
-              </label>
-            </div>
-
-            <div className="content-list">
-              <p className="text-content">IDR54,000</p>
-              <p className="text-content">Good</p>
-              <p className="text-content">480p</p>
-              <div className="device-list">
-                <i className="fas fa-mobile-alt text-icon"></i>
-                <span className="text-icon-1">Phone</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-tablet-alt text-icon"></i>
-                <span className="text-icon-1">Tablet</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <input
-              className="tab-input"
-              type="radio"
-              name="radiotab"
-              id="tab-3"
-            />
-
-            <div className="label">
-              <label className="tab-label text-table-head" htmlFor="tab-3">
-                Basic
-              </label>
-            </div>
-
-            <div className="content-list">
-              <p className="text-content">IDR120,000</p>
-              <p className="text-content">Good</p>
-              <p className="text-content">720p</p>
-              <div className="device-list">
-                <i className="fas fa-mobile-alt text-icon"></i>
-                <span className="text-icon-1">Phone</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-tablet-alt text-icon"></i>
-                <span className="text-icon-1">Tablet</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-computer text-icon"></i>
-                <span className="text-icon-1">Computer</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-tv-alt text-icon"></i>
-                <span className="text-icon-1">TV</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <input
-              className="tab-input"
-              type="radio"
-              name="radiotab"
-              id="tab-4"
-            />
-
-            <div className="label">
-              <label className="tab-label text-table-head" htmlFor="tab-4">
-                Standard
-              </label>
-            </div>
-
-            <div className="content-list">
-              <p className="text-content">IDR153,000</p>
-              <p className="text-content">Better</p>
-              <p className="text-content">1080p</p>
-              <div className="device-list">
-                <i className="fas fa-mobile-alt text-icon"></i>
-                <span className="text-icon-1">Phone</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-tablet-alt text-icon"></i>
-                <span className="text-icon-1">Tablet</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-computer text-icon"></i>
-                <span className="text-icon-1">Computer</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-tv-alt text-icon"></i>
-                <span className="text-icon-1">TV</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <input
-              className="tab-input"
-              type="radio"
-              name="radiotab"
-              id="tab-5"
-              checked
-            />
-
-            <div className="label">
-              <label className="tab-label text-table-head" htmlFor="tab-5">
-                Premium
-              </label>
-            </div>
-
-            <div className="content-list">
-              <p className="text-content">IDR186,000</p>
-              <p className="text-content">Best</p>
-              <p className="text-content">4K+HDR</p>
-              <div className="device-list">
-                <i className="fas fa-mobile-alt text-icon"></i>
-                <span className="text-icon-1">Phone</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-tablet-alt text-icon"></i>
-                <span className="text-icon-1">Tablet</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-computer text-icon"></i>
-                <span className="text-icon-1">Computer</span>
-              </div>
-              <div className="device-list">
-                <i className="fas fa-tv-alt text-icon"></i>
-                <span className="text-icon-1">TV</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="line">
-          <hr />
-          <hr />
-          <hr />
-        </div>
-
-        <div className="terms">
-          <p className="text-terms">
-            HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability
-            subject to your internet service and device capabilities. Not all
-            content is available in all resolutions. See our{" "}
-            <span className="text-terms-1">Terms of Use</span> for more details.
+      <section className="flex items-start justify-center h-full">
+        <form className="flex flex-col items-start justify-center mt-20 ">
+          <p className="flex text-xs ">
+            STEP&nbsp;<p className="font-bold">1&nbsp;</p>OF&nbsp;{" "}
+            <p className="font-bold">3</p>
           </p>
-          <p className="text-terms margin-top">
-            Only people who live with you may use your account. Watch on 4
-            different devices at the same time with Premium, 2 with Standard,
-            and 1 with Basic and Mobile.
+          <h2 className="flex-wrap w-[480px] mt-2 mb-4 text-3xl font-bold whitespace-normal">
+            Create a password to start your membership
+          </h2>
+          <p className="text-xl font-semibold w-[380px] ">
+            Just a few more steps and you're done! We hate paperwork, too.
           </p>
-        </div>
-
-        <form action="">
-          <button
-            className="btn-plan margin-inline margin-top-3"
-            type="submit"
-            value="submit"
-          >
+          <input
+            id="inputSignup"
+            className="w-full px-2 py-5 mt-2 placeholder-black transition-transform duration-1000 border border-black rounded p border-1 placeholder-move-up"
+            placeholder="Email"
+          ></input>
+          <input
+            id="inputSignup"
+            className="w-full px-2 py-5 mt-2 placeholder-black transition-transform duration-1000 border border-black rounded placeholder-move-up border-1"
+            placeholder="Add a password"
+          ></input>
+          <button className="w-full rounded mt-6 h-[75px] text-3xl font-semibold text-white bg-netflix-red">
             Next
           </button>
         </form>
       </section>
-
       <footer className="footer footer-gray margin-top-1">
         <div className="footer-container margin-inline">
           <p>
@@ -295,8 +98,6 @@ const SignUpPlanPage2 = () => {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
-};
-
-export default SignUpPlanPage2;
+}
