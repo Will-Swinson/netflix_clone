@@ -1,6 +1,20 @@
-import React from "react";
+import { useState } from "react";
 import "../signup.css";
 const SignUpPlanPage4 = () => {
+  const [selectedPlan, setSelectedPlan] = useState(1);
+
+  console.log(selectedPlan);
+
+  function handleSelectedPlan(e) {
+    const plan = e.target.id;
+
+    if (plan > 0 && plan < 5) {
+      setSelectedPlan(plan);
+    } else {
+      throw new Error("Invalid plan");
+    }
+  }
+
   return (
     <>
       <nav className="nav nav-3">
@@ -74,8 +88,12 @@ const SignUpPlanPage4 = () => {
               id="tab-2"
             />
 
-            <div className="label">
-              <label className="tab-label text-table-head" htmlFor="tab-2">
+            <div onClick={handleSelectedPlan} className="label">
+              <label
+                id={1}
+                className="tab-label text-table-head"
+                htmlFor="tab-2"
+              >
                 Mobile
               </label>
             </div>
@@ -103,8 +121,12 @@ const SignUpPlanPage4 = () => {
               id="tab-3"
             />
 
-            <div className="label">
-              <label className="tab-label text-table-head" htmlFor="tab-3">
+            <div onClick={handleSelectedPlan} className="label">
+              <label
+                id={2}
+                className="tab-label text-table-head"
+                htmlFor="tab-3"
+              >
                 Basic
               </label>
             </div>
@@ -140,8 +162,12 @@ const SignUpPlanPage4 = () => {
               id="tab-4"
             />
 
-            <div className="label">
-              <label className="tab-label text-table-head" htmlFor="tab-4">
+            <div onClick={handleSelectedPlan} className="label">
+              <label
+                id={3}
+                className="tab-label text-table-head"
+                htmlFor="tab-4"
+              >
                 Standard
               </label>
             </div>
@@ -175,11 +201,14 @@ const SignUpPlanPage4 = () => {
               type="radio"
               name="radiotab"
               id="tab-5"
-              checked
             />
 
-            <div className="label">
-              <label className="tab-label text-table-head" htmlFor="tab-5">
+            <div onClick={handleSelectedPlan} className="label">
+              <label
+                id={4}
+                className="tab-label text-table-head"
+                htmlFor="tab-5"
+              >
                 Premium
               </label>
             </div>

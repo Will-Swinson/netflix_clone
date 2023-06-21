@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SignInPage() {
   return (
@@ -40,7 +41,8 @@ export default function SignInPage() {
           <p className="mt-1 text-xs text-red-500"></p>
         </div>
 
-        <input
+        <button
+          to="/home"
           type="submit"
           value="Sign In"
           className="w-full py-4 text-sm text-gray-200 capitalize rounded shadow-md cursor-pointer bg-netflix-red hover:bg-gray-800"

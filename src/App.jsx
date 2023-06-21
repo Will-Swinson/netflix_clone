@@ -11,6 +11,8 @@ import SignUpPlanPage3 from "./components/SignUpPlanPage3.jsx";
 import SignUpPlanPage4 from "./components/SignUpPlanPage4.jsx";
 import SignUpPlanPaymentPage from "./components/SignUpPlanPaymentPage.jsx";
 
+import { Routes, Route } from "react-router-dom";
+
 import "./App.css";
 function App() {
   const { setMovies } = useMovies();
@@ -24,11 +26,14 @@ function App() {
 
   return (
     <>
-      {/* <SignUpPlanPage4 /> */}
-      <SignUpPlanPaymentPage />
-      {/* <SignInPage /> */}
-      {/* <MovieHomePage /> */}
-      {/* <LandingPage /> */}
+      <Routes>
+        <Route path="/signin" element={<SignInPage />} />
+        {/* <SignUpPlanPage4 /> */}
+        {/* <SignUpPlanPaymentPage /> */}
+        {/* <SignInPage /> */}
+        <Route path="/home" element={<MovieHomePage />} />
+        {/* <LandingPage /> */}
+      </Routes>
     </>
   );
 }
