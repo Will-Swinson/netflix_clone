@@ -1,5 +1,7 @@
 import React from "react";
 import lockImg from "../assets/Lock.png";
+import { handleStripePayment } from "../utils/Stripe.jsx";
+
 import {
   FaCcVisa,
   FaCcMastercard,
@@ -44,7 +46,10 @@ export default function SignUpPlanPaymentPage() {
               <p className="flex justify-end w-full mb-2">
                 End-to-end encrypted 🔒
               </p>
-              <button className="w-full rounded h-[75px] mb-2 border-4 hover:border-2 border-gray-400 bg-white text-3xl justify-start font-semibold text-black flex">
+              <button
+                onClick={handleStripePayment}
+                className="w-full rounded h-[75px] mb-2 border-4 hover:border-2 border-gray-400 bg-white text-3xl justify-start font-semibold text-black flex"
+              >
                 <div className="flex justify-between w-full ml-6">
                   <div className="flex w-full">
                     <p className="text-lg font-bold">Credit or Debit Card</p>
