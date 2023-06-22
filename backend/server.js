@@ -15,8 +15,6 @@ const PORT = process.env.PORT || 5000;
 
 // Insert data into database
 
-const key = process.env.API_KEY;
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

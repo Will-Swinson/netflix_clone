@@ -1,12 +1,16 @@
 import { useState } from "react";
 import "../signup.css";
-const SignUpPlanPage4 = () => {
-  const [selectedPlan, setSelectedPlan] = useState(1);
+import { Link, useNavigate } from "react-router-dom";
+import { useMovies } from "../context/MovieProvider.jsx";
 
+const SignUpPlanPage4 = () => {
+  const { selectedPlan, setSelectedPlan } = useMovies();
+
+  const navigate = useNavigate();
   console.log(selectedPlan);
 
   function handleSelectedPlan(e) {
-    const plan = e.target.id;
+    const plan = Number(e.target.id);
 
     if (plan > 0 && plan < 5) {
       setSelectedPlan(plan);
@@ -17,17 +21,17 @@ const SignUpPlanPage4 = () => {
 
   return (
     <>
-      <nav className="nav nav-3">
-        <a href="">
-          <img
-            className="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Logonetflix.png/1600px-Logonetflix.png"
-            alt=""
-          />
-        </a>
-        <a href="" className="btn-logout text-underline">
-          Sign Out
-        </a>
+      <nav className="z-0 nav nav-3">
+        <img
+          className="cursor-pointer logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Logonetflix.png/1600px-Logonetflix.png"
+          alt=""
+          onClick={() => navigate("/")}
+        />
+
+        <Link to="/signin" className="btn-logout text-underline">
+          Sign In
+        </Link>
       </nav>
 
       <section className="container-table margin-inline">
@@ -86,6 +90,7 @@ const SignUpPlanPage4 = () => {
               type="radio"
               name="radiotab"
               id="tab-2"
+              checked={selectedPlan === 1}
             />
 
             <div onClick={handleSelectedPlan} className="label">
@@ -119,6 +124,7 @@ const SignUpPlanPage4 = () => {
               type="radio"
               name="radiotab"
               id="tab-3"
+              checked={selectedPlan === 2}
             />
 
             <div onClick={handleSelectedPlan} className="label">
@@ -160,6 +166,7 @@ const SignUpPlanPage4 = () => {
               type="radio"
               name="radiotab"
               id="tab-4"
+              checked={selectedPlan === 3}
             />
 
             <div onClick={handleSelectedPlan} className="label">
@@ -201,6 +208,7 @@ const SignUpPlanPage4 = () => {
               type="radio"
               name="radiotab"
               id="tab-5"
+              checked={selectedPlan === 4}
             />
 
             <div onClick={handleSelectedPlan} className="label">
@@ -258,13 +266,15 @@ const SignUpPlanPage4 = () => {
         </div>
 
         <form action="">
-          <button
-            className="btn-plan margin-inline margin-top-3"
-            type="submit"
-            value="submit"
-          >
-            Next
-          </button>
+          <Link className="w-full" to="/payment">
+            <button
+              className="text-white btn-plan margin-inline margin-top-3 bg-netflix-red text-"
+              type="submit"
+              value="submit"
+            >
+              Next
+            </button>
+          </Link>
         </form>
       </section>
 

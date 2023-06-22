@@ -15,7 +15,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use("/api/signup", signupRouter, hashPasswordMiddleware);
+app.use("/api/signup", hashPasswordMiddleware, signupRouter);
 app.use("/api/login", loginRouter);
 app.use("/api/my_list", myListRouter);
 app.use("/api/movies", movieRouter);

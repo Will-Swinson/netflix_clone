@@ -1,22 +1,38 @@
 import React from "react";
 import "../signup.css";
+import { Link } from "react-router-dom";
+import { useMovies } from "../context/MovieProvider";
+
 export default function SignUpPlanPage2() {
+  const { formik } = useMovies();
+
+  const hasErrorStyle = formik.errors.email
+    ? "border-netflix-red text-netflix-red placeholder-netflix-red"
+    : "border-gray-400";
+
+  const hasErrorStylePass = formik.errors.password
+    ? "border-netflix-red text-netflix-red placeholder-netflix-red"
+    : "border-gray-400";
+
   return (
     <div className="flex flex-col h-screen">
       <nav className="nav nav-3">
-        <a href="">
+        <Link to="/">
           <img
             className="logo"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Logonetflix.png/1600px-Logonetflix.png"
             alt=""
           />
-        </a>
-        <a href="" className="btn-logout text-underline">
-          Sign Out
-        </a>
+        </Link>
+        <Link to="/signin" className="btn-logout text-underline">
+          Sign In
+        </Link>
       </nav>
       <section className="flex items-start justify-center h-full">
-        <form className="flex flex-col items-start justify-center mt-20 ">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="flex flex-col items-start justify-center mt-20 "
+        >
           <p className="flex text-xs ">
             STEP&nbsp;<p className="font-bold">1&nbsp;</p>OF&nbsp;{" "}
             <p className="font-bold">3</p>
@@ -27,16 +43,31 @@ export default function SignUpPlanPage2() {
           <p className="text-xl font-semibold w-[380px] ">
             Just a few more steps and you're done! We hate paperwork, too.
           </p>
-          <input
-            id="inputSignup"
-            className="w-full px-2 py-5 mt-2 placeholder-black transition-transform duration-1000 border border-black rounded p border-1 placeholder-move-up"
-            placeholder="Email"
-          ></input>
-          <input
-            id="inputSignup"
-            className="w-full px-2 py-5 mt-2 placeholder-black transition-transform duration-1000 border border-black rounded placeholder-move-up border-1"
-            placeholder="Add a password"
-          ></input>
+          <div className={`${hasErrorStyle} flex flex-col w-full`}>
+            <input
+              id="inputSignup"
+              name="email"
+              className="w-full px-2 py-5 mt-2 placeholder-black transition-transform duration-1000 border border-black rounded p border-1 placeholder-move-up"
+              placeholder={formik.values.email ? formik.values.email : "Email"}
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            ></input>
+            {formik.errors.email && formik.errors.email}
+          </div>
+          <div className={`${hasErrorStylePass} flex flex-col w-full`}>
+            <input
+              name="password"
+              id="inputSignup"
+              className="w-full px-2 py-5 mt-2 placeholder-black transition-transform duration-1000 border border-black rounded placeholder-move-up border-1"
+              placeholder="Add a password"
+              type="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            ></input>
+            {formik.errors.password && formik.errors.password}
+          </div>
           <button className="w-full rounded mt-6 h-[75px] text-3xl font-semibold text-white bg-netflix-red">
             Next
           </button>

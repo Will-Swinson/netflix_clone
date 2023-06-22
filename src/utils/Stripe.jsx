@@ -1,11 +1,17 @@
 import axios from "axios";
 
-export async function handleStripePayment(e) {
+export async function handleStripePayment(selectedPlan, e) {
   try {
     e.preventDefault();
-    const items = [{ id: 1, quantity: 1 }];
+    console.log(selectedPlan);
+    console.log("hello");
+    const items = [{ id: selectedPlan, quantity: 1 }];
 
-    const response = await axios.post("/api/stripe/charge", { items });
+    console.log(items);
+
+    const response = await axios.post("/api/stripe/charge", {
+      items,
+    });
 
     console.log(response.data);
 

@@ -1,38 +1,56 @@
 import React from "react";
-import computerImg from "../assets/devices-img.png";
+import checkMarkImg from "../assets/checkmark.png";
+import { IoMdCheckmark } from "react-icons/io";
+import { Link } from "react-router-dom";
 
-export default function SignUpPlanPage1() {
+export default function SignUpPlanPage3() {
   return (
     <div className="flex flex-col h-screen">
       <nav className="nav nav-3">
-        <a href="">
+        <Link to="/">
           <img
             className="logo"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Logonetflix.png/1600px-Logonetflix.png"
             alt=""
           />
-        </a>
-        <a href="" className="btn-logout text-underline">
-          Sign Out
-        </a>
+        </Link>
+        <Link to="/signin" className="btn-logout text-underline">
+          Sign In
+        </Link>
       </nav>
       <section className="flex items-start justify-center h-full">
         <form className="flex flex-col items-center justify-center mt-20 ">
-          <img src={computerImg} className="w-[275px] mb-10" />
-          <p className="flex text-xs ">
-            STEP&nbsp;<p className="font-bold">1&nbsp;</p>OF&nbsp;{" "}
+          <img src={checkMarkImg} className="mb-8 w-14" />
+          <p className="flex text-md ">
+            STEP&nbsp;<p className="font-bold">2&nbsp;</p>OF&nbsp;{" "}
             <p className="font-bold">3</p>
           </p>
-          <h2 className="flex-wrap mt-2 mb-4 text-3xl font-bold text-center whitespace-normal w-96">
-            Finish setting up your account
+          <h2 className=" w-[480px] mt-2 mb-4 text-3xl text-center font-bold whitespace-normal">
+            Choose your plan.
           </h2>
-          <p className="text-xl font-semibold w-[330px] text-center">
-            Netflix is personalized for you. Create a password to start watching
-            Netflix.
-          </p>
-          <button className="w-full rounded mt-6 h-[75px] text-3xl font-semibold text-white bg-netflix-red">
-            Next
-          </button>
+          <div className="flex items-center justify-center w-full h-full mt-6 mb-6 mr-6">
+            <IoMdCheckmark className="mr-4 text-netflix-red" size={40} />
+            <p className="text-xl font-semibold w-[300px] ">
+              No commitments, cancel anytime.
+            </p>
+          </div>
+          <div className="flex items-center justify-center w-full h-full mb-6 mr-6">
+            <IoMdCheckmark className="mr-4 text-netflix-red" size={40} />
+            <p className="text-xl font-semibold w-[300px] ">
+              Endless entertainment for one low price.
+            </p>
+          </div>
+          <div className="flex items-center justify-center w-full h-full mb-6 mr-6">
+            <IoMdCheckmark className="mr-4 text-netflix-red" size={40} />
+            <p className="text-xl font-semibold w-[300px] ">
+              Enjoy Netflix on all your devices.
+            </p>
+          </div>
+          <Link className="w-full h-full" to="/signup4">
+            <button className="w-full rounded mt-6 h-[75px] text-3xl font-semibold text-white bg-netflix-red">
+              Next
+            </button>
+          </Link>
         </form>
       </section>
       <footer className="footer footer-gray margin-top-1">
