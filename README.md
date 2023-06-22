@@ -25,20 +25,20 @@ This project was built on inspiration from Netflix, so you can watch movies, tv 
 
 ### - Clone Repository
 
-```
+```sh { vsls_cell_id=0e8f10a2-6304-4a5b-8c16-f338c7b5c891 }
 git clone https://github.com/Will-Swinson/netflix_clone.git
 ```
 
 ### - Install Dependencies
 
-```
+```sh { vsls_cell_id=df09f8c4-89ee-4bbb-ad41-2b0bc00c8363 }
 cd netflix_clone
 npm install
 ```
 
 ### - Running The App Locally
 
-```
+```sh { vsls_cell_id=aff43912-215f-410f-9464-e2a2d4371d82 }
 npm run start
 ```
 
@@ -46,13 +46,10 @@ npm run start
 
 - Obstacle Faced - **Getting Data To Backend**  
    Solved this issue by making a planned out data ERD to overcome this and make routes easier to make.
-
 - Obstacle Faced - **Adapting To New Technologies**  
    Used new technologies making this project, so using documentation and videos for learning helped the process.
-
 - Obstacle Faced - **Slider Functionality**
-  Solved this issue by making a planned out data ERD to overcome this and make routes easier to make.
-
+   Solved this issue by making a planned out data ERD to overcome this and make routes easier to make.
 - Obstacle Faced - **Player Functionality**  
    Solved this issue by making a planned out data ERD to overcome this and make routes easier to make.
 
