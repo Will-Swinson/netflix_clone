@@ -5,6 +5,9 @@ import "tailwindcss/tailwind.css";
 import LandingPage from "./pages/LandingPage.jsx";
 import SignInPage from "./pages/SignInPage.jsx";
 import MovieHomePage from "./pages/MovieHomePage.jsx";
+
+import MyListPage from "./pages/MyListPage.jsx";
+
 import SignUpPlanPage1 from "./pages/SignUpPlanPage1.jsx";
 import SignUpPlanPage2 from "./pages/SignUpPlanPage2.jsx";
 import SignUpPlanPage3 from "./pages/SignUpPlanPage3.jsx";
@@ -27,6 +30,8 @@ function App() {
 
   return (
     <>
+
+
       <Routes>
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signup" element={<SignUpPlanPage1 />} />
@@ -38,6 +43,7 @@ function App() {
         <Route path="/profile-login" element={<NetflixProfile />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
+
     </>
   );
 }
