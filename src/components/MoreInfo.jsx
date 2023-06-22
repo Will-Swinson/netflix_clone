@@ -23,6 +23,7 @@ function MoreInfoButton({ movie }) {
     <div>
       <button onClick={openModal}>
         <IoIosArrowDropdown className="text-4xl ml-2" />
+
       </button>
       <ReactModal
         ariaHideApp={false}
