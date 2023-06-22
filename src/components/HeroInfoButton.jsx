@@ -6,9 +6,10 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { useMovies } from "../context/MovieProvider.jsx";
 
-function MoreInfoButton({ movie }) {
+function HeroInfoButton({ movie }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { movies } = useMovies();
+  const blackMirror = movies[0];
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -23,9 +24,11 @@ function MoreInfoButton({ movie }) {
     <div>
       <button
         onClick={openModal}
-        // className="flex items-center justify-center w-40 h-12 px-4 py-2 text-lg font-bold text-white bg-gray-600 rounded bg-opacity-70"
+        className="flex bg-gray-600 text-white bg-opacity-70 px-4 py-2 rounded
+           w-42 h-12 items-center justify-center text-lg"
       >
-        <IoIosArrowDropdown className="ml-2 text-4xl" />
+        <IoMdInformationCircleOutline className="text-4xl mr-2" />
+        <span className="opacity-100 font-bold">More Info</span>
       </button>
       <ReactModal
         ariaHideApp={false}
@@ -36,11 +39,11 @@ function MoreInfoButton({ movie }) {
         contentClassName="flex flex-col h-full"
       >
         <div>
-          <ModalContent closeModal={closeModal} movie={movie} />
+          <ModalContent closeModal={closeModal} movie={blackMirror} />
         </div>
       </ReactModal>
     </div>
   );
 }
 
-export default MoreInfoButton;
+export default HeroInfoButton;

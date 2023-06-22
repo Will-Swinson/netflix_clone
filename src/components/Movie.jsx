@@ -13,11 +13,15 @@ const Movie = ({ movie, id }) => {
         src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
         alt={movie?.title}
       />
-      <div className="absolute top-0 left-0 w-full h-full text-white rounded opacity-0 hover:bg-black/80 hover:opacity-100">
-        <p className="flex items-center justify-center h-full text-xs font-bold text-center text-white whitespace-normal md:text-sm">
+
+      <div className="absolute top-0 left-0 w-full h-full opacity-0 hover:bg-black/80 hover:opacity-100 text-white rounded">
+        <p className="flex whitespace-normal font-bold md:text-sm text-xs h-full justify-center items-center text-center text-white">
           {movie?.title || movie?.name}
-        </p>
-        <p>
+          <p className="absolute bottom-0 right-2">
+            <MoreInfoButton movie={movie} />
+          </p>
+       
+        {/* <p>
           {like ? (
             <AiFillHeart
               className="absolute text-gray-300 top-4 left-4"
@@ -29,7 +33,7 @@ const Movie = ({ movie, id }) => {
               size={40}
             />
           )}
-        </p>
+        </p> */}
       </div>
     </div>
   );

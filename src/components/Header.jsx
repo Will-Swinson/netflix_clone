@@ -12,8 +12,8 @@ function Header() {
             alt="netflix-logo"
           />
         </div>
-        <div className="items-center justify-between hidden w-[1000px] h-full sm:flex sm:w-1/3">
-          <ul className="flex items-center w-full ml-10">
+        <div className="flex justify-between h-full sm:flex">
+          <ul className="flex  w-full ml-10">
             <li className="flex items-center h-full ml-4 text-xs lg:text-xl">
               Home
             </li>
