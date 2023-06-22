@@ -9,20 +9,22 @@ dotenv.config();
 export const createUser = async (req, res) => {
   try {
     // destrcture name, email, password from req.body
-    const { name, email, password, phoneNumber } = req.body;
+    const { email, password } = req.body;
 
     // query database to check if user exists
     const userExists = await sql`SELECT * FROM users WHERE email = ${email}`;
 
+    console.log(userExists);
     // if user exists, return error
-    if (!userExists) throw new Error("User already exists");
+    if (userExists.length > 0) throw new Error("User already exists");
 
     // Insert user into database
-    const newUser =
-      await sql`INSERT INTO users (name, email, password, phone_number) VALUES (${name}, ${email}, ${password}, ${phoneNumber})`;
+    const [newUser] =
+      await sql`INSERT INTO users ( email, password) VALUES ( ${email}, ${password}) RETURNING *;`;
 
+    console.log(newUser);
     // Create users mylist
-    await sql`INSERT INTO mylist (created_at, user_id) VALUES (${Date.now()}${
+    await sql`INSERT INTO my_list (created, user_id) VALUES (${Date.now()},${
       newUser.id
     })`;
 

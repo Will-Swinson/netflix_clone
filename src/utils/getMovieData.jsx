@@ -59,10 +59,4 @@ export async function getAllMovieAndShows() {
   return result.data.movies;
 }
 
-getPopularMovies().then((data) => {
-
-  console.log(data);
-  
-});
-
 export default requestsMovies;

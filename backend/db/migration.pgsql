@@ -1,12 +1,11 @@
-DROP TABLE IF EXISTS my_list,users, api_data;
+DROP TABLE IF EXISTS users, my_list, api_data;
 
 
 CREATE TABLE users
 (
   id       serial NOT NULL,
-  username TEXT   NOT NULL,
-  password TEXT   NOT NULL,
   email    TEXT   NOT NULL,
+  password TEXT   NOT NULL,
   PRIMARY KEY (id)
 );
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { BsGlobe2 } from "react-icons/bs";
 import bluePurpleGradientBackground from "../assets/download.jfif";
 import popcornImg from "../assets/popcorn_image.png";
@@ -7,11 +8,13 @@ import griddyGif from "../assets/griddy-gif.gif";
 import kidImg from "../assets/kid-img.png";
 import phoneImg from "../assets/phone-img.jpg";
 import { IoIosArrowForward } from "react-icons/io";
-
 import FrequentlyAsked from "../components/FrequentlyAsked";
 import FrequentlyAskedButton from "../components/FrequentlyAskedButton";
+import { useMovies } from "../context/MovieProvider";
 
 export default function LandingPage() {
+  const { formik } = useMovies();
+
   const [isDropped, setIsDropped] = useState({
     dropdown1: false,
     dropdown2: false,
@@ -30,6 +33,10 @@ export default function LandingPage() {
     }));
   };
 
+  const hasErrorStyle = formik.errors.email
+    ? "placeholder-netflix-red border-netflix-red text-red-500"
+    : "placeholder-gray-400";
+
   return (
     <>
       <div
@@ -40,7 +47,7 @@ export default function LandingPage() {
           height: "55vh",
         }}
       >
-        <navbar className="flex relative w-full h-[50px] xl:h-[100px] justify-between items-center ">
+        <nav className="flex relative w-full h-[50px] xl:h-[100px] justify-between items-center ">
           <div className="h-full w-[120px] xl:w-[175px] p-2 ml-6 xl:ml-[190px] mt-6 ">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png" />
           </div>
@@ -50,10 +57,10 @@ export default function LandingPage() {
               <option>English</option>
             </select>
             <button className="h-8 whitespace-nowrap bg-[rgb(229,9,20)] hover:bg-red-700 w-[75px] rounded text-white text-[14px] font-bold text-center ">
-              Sign In
+              <Link to="/signin">Sign In</Link>
             </button>
           </div>
-        </navbar>
+        </nav>
         <div className=" text-white justify-center absolute w-full mx-auto top-[36%]  ">
           <div className="flex flex-col items-center justify-center text-white">
             <h2 className="mb-2 text-xl font-bold text-center md:text-3xl xl:text-5xl">
@@ -68,17 +75,24 @@ export default function LandingPage() {
               membership.
             </p>
           </div>
-          <div className="flex items-center justify-center w-full h-full mt-4">
-            <input
-              id="inputSignup"
-              className="font-bold w-full md:w-[300px] h-[52px] rounded bg-gray-800 placeholder-gray-400 px-4 bg-opacity-[70%] text-md md:text-l border border-1 focus:text-xs placeholder-move-up transition-transform duration-1000 "
-              type="text"
-              placeholder="Email address"
-            />
+          <form className="flex items-start justify-center w-full h-full ">
+            <div className={`flex flex-col font-bold ${hasErrorStyle}   `}>
+              <input
+                id="inputSignup"
+                className={`font-bold w-full md:w-[300px] h-[52px] rounded bg-gray-800  px-4 bg-opacity-[70%] text-md md:text-l border border-1 focus:text-xs placeholder-move-up transition-transform duration-1000`}
+                type="text"
+                name="email"
+                placeholder={"Email Address"}
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              {formik.errors.email ? formik.errors.email : null}
+            </div>
             <button className="w-[275px] h-[55px] md:w-[175px] ml-2 rounded bg-red-600 font-bold text-xl md:text-1xl">
-              Get Started
+              <Link to="/signup">Get Started</Link>
             </button>
-          </div>
+          </form>
         </div>
       </div>
       <div className="relative h-full bg-black">
@@ -99,13 +113,13 @@ export default function LandingPage() {
                 The Netflix you love for just $6.99.
               </h2>
               <p className="text-lg">Get the Standard with ads plan.</p>
-              <a
+              <Link
                 className="flex items-center justify-center text-lg font-bold text-blue-500 underline"
-                href="#"
+                to="/signup"
               >
                 Learn More
                 <IoIosArrowForward className="mt-1" size={25} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

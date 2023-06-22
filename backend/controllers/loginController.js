@@ -10,11 +10,15 @@ export const loginUser = async (req, res) => {
   try {
     // get the email or phone number and password from the request body
     const { email, password } = req.body;
+    console.log(email, password);
+
     // query the database for the user to get the password
-    const user = await sql`SELECT * FROM users WHERE email = ${email}`;
+    const [user] = await sql`SELECT * FROM users WHERE email = ${email}`;
     // if compare the password with the password in the database
+    console.log(user.password, password);
     const isValid = bcrypt.compareSync(password, user.password);
     // if the password doesn't match return an error
+    console.log(isValid);
     if (!isValid) throw new Error("Invalid password");
     // if the password matches, return the user and a token
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
