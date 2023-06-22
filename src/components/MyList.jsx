@@ -3,12 +3,12 @@ import { useMovies } from "../context/MovieProvider.jsx";
 import Movie from "./Movie.jsx";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
-function TrendingShows({ title, id }) {
+function MyList({ title, id }) {
   const { movies } = useMovies();
 
   // Filter movies by type for popular movies
   const popularMovies = movies
-    .filter((movie) => movie.type === 6)
+    .filter((movie) => movie.type === 1)
     .map((movie, id) => {
       console.log(movie);
       return (
@@ -53,4 +53,4 @@ function TrendingShows({ title, id }) {
   );
 }
 
-export default TrendingShows;
+export default MyList;

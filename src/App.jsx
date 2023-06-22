@@ -4,7 +4,8 @@ import { useMovies } from "./context/MovieProvider.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import SignInPage from "./pages/SignInPage.jsx";
 import MovieHomePage from "./pages/MovieHomePage.jsx";
-import SignUpPage2 from "./components/SignUpPage2.jsx";
+import SignUpPlanPage2 from "./components/SignUpPlanPage2.jsx";
+import MyListPage from "./pages/MyListPage.jsx";
 import "./App.css";
 function App() {
   const { setMovies } = useMovies();
@@ -19,8 +20,9 @@ function App() {
   return (
     <>
       {/* <SignInPage /> */}
-      {/* <MovieHomePage /> */}
-      <LandingPage />
+      <MovieHomePage />
+      {/* <MyListPage /> */}
+      {/* <LandingPage /> */}
     </>
   );
 }

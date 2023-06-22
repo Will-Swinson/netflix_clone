@@ -15,10 +15,12 @@ const Movie = ({ movie, id }) => {
       />
       <div className="absolute top-0 left-0 w-full h-full opacity-0 hover:bg-black/80 hover:opacity-100 text-white rounded">
         <p className="flex whitespace-normal font-bold md:text-sm text-xs h-full justify-center items-center text-center text-white">
-          {movie?.title}
-          <MoreInfoButton movie={movie} />
+          {movie?.title || movie?.name}
+          <p className="absolute bottom-0 right-2">
+            <MoreInfoButton movie={movie} />
+          </p>
         </p>
-        <p>
+        {/* <p>
           {like ? (
             <AiFillHeart
               className="absolute top-4 left-4 text-gray-300"
@@ -30,7 +32,7 @@ const Movie = ({ movie, id }) => {
               size={40}
             />
           )}
-        </p>
+        </p> */}
       </div>
     </div>
   );
