@@ -21,7 +21,7 @@ function MoreInfoButton({ movie }) {
     <div>
       <button
         onClick={openModal}
-        className="flex bg-gray-600 text-white bg-opacity-70 px-4 py-2 rounded font-bold w-40 h-12 items-center justify-center text-lg"
+        className="flex items-center justify-center w-40 h-12 px-4 py-2 text-lg font-bold text-white bg-gray-600 rounded bg-opacity-70"
       >
         <IoMdInformationCircleOutline className="mr-2" />
         <span className="opacity-100">More Info</span>

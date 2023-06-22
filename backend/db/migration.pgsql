@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users, my_list, api_data;
+DROP TABLE IF EXISTS users, my_list, api_data, my_list_movies;
 
 
 CREATE TABLE users
@@ -43,3 +43,12 @@ CREATE TABLE api_data
   vote_count    INT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE my_list_movies
+(
+my_list_id INT NOT NULL,
+api_data_id INT NOT NULL,
+FOREIGN KEY (my_list_id) REFERENCES my_list (id),
+PRIMARY KEY (my_list_id, api_data_id)
+);
+
