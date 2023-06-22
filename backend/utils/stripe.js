@@ -1,6 +1,7 @@
 import stripe from "stripe";
 import dotenv from "dotenv";
 import { sql } from "../server.js";
+
 dotenv.config();
 
 // Give strip the stripe secret key
