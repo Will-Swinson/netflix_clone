@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users, my_list, api_data;
+DROP TABLE IF EXISTS users CASCADE;
 
 
 CREATE TABLE users

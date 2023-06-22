@@ -20,20 +20,7 @@ const Movie = ({ movie, id }) => {
           <p className="absolute bottom-0 right-2">
             <MoreInfoButton movie={movie} />
           </p>
-       
-        {/* <p>
-          {like ? (
-            <AiFillHeart
-              className="absolute text-gray-300 top-4 left-4"
-              size={40}
-            />
-          ) : (
-            <AiOutlineHeart
-              className="absolute text-gray-300 top-4 left-4"
-              size={40}
-            />
-          )}
-        </p> */}
+        </p>
       </div>
     </div>
   );
