@@ -18,7 +18,7 @@ function Header() {
     <div className="fixed top-0 z-10 w-screen bg-black ">
       <div className="flex items-center justify-between w-full h-20 text-lg text-white">
         <img
-          className="w-10 h-4 ml-6 flex-2 md:w-12 xl:h-6 xl:w-32"
+          className="w-10 h-4 ml-6 flex-2 md:w-8 xl:h-8 xl:w-32"
           src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png"
           alt="netflix-logo"
         />
@@ -27,7 +27,7 @@ function Header() {
             <DefaultDropdown />
           </div>
         ) : (
-          <ul className="flex w-full text-[8px] sm:text-[8px] md:text-[12px] font-semibold justify-around ml-6 flex-1 xl:text-[16px]">
+          <ul className="flex w-full text-[8px] sm:text-[8px] md:text-[12px] font-semibold space-x-4 ml-6 flex-1 xl:text-[16px]">
             <Link to="/home" className="">
               Home
             </Link>

@@ -13,32 +13,23 @@ import { move } from "formik";
 
 function Hero() {
   const { movies, isMuted, handleMute } = useMovies();
-  const blackMirror = movies[0];
   const [heroLink, setHeroLink] = useState("");
+  const [randomMovie, setRandomMovie] = useState(null);
 
   useEffect(() => {
     const filteredMovies = movies.filter((movie) => movie.type !== 6);
-    console.log(filteredMovies);
-    const setId = setInterval(() => {
-      setHeroLink(
-        filteredMovies[Math.floor(Math.random() * movies.length)]?.video_key
-      );
-    }, 15000);
+    const randomMovie =
+      filteredMovies[Math.floor(Math.random() * filteredMovies.length)];
 
-    if (setId) {
-      return () => clearInterval(setId);
-    }
-  }, [heroLink]);
+    setHeroLink(randomMovie?.video_key);
+    setRandomMovie(randomMovie); // Set the randomMovie state
+  }, [movies]);
 
   return (
     <div className="relative w-screen">
       <div className="w-full h-[1000px]">
         <ReactPlayer
-          url={
-            heroLink === ""
-              ? `https://youtu.be/KydqdKKyGEk`
-              : `https://www.youtube.com/watch?v=${heroLink}`
-          }
+          url={`https://www.youtube.com/watch?v=${heroLink}`}
           width="100%"
           height="100%"
           controls={false}
@@ -54,7 +45,9 @@ function Hero() {
           // light={true}
         />
       </div>
-
+      <h2 className="absolute bottom-60 ml-12 font-sans font-bold text-5xl text-white">
+        {randomMovie?.title}
+      </h2>
       <div className="absolute flex-col items-center ml-12 bottom-10">
         <div className="flex">
           <div className="flex items-center justify-center w-full h-full">
@@ -63,7 +56,9 @@ function Hero() {
               Play
             </button>
 
-            <HeroInfoButton movie={blackMirror} />
+            {/* Pass the randomMovie as a prop */}
+            <HeroInfoButton movie={randomMovie} />
+
             <div>
               <button
                 onClick={handleMute}

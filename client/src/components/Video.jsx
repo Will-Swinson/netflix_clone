@@ -10,26 +10,22 @@ function PlayVideo({ movie }) {
   const { isMuted } = useMovies();
   useEffect(() => {
     if (isPlaying) {
-      // Start playing the video when the modal is opened
       setShouldPlay(true);
     }
   }, [isPlaying]);
 
   useEffect(() => {
     if (shouldPlay) {
-      // Start playing the video
       playerRef.current.seekTo(0);
     }
   }, [shouldPlay]);
 
   useEffect(() => {
-    // Set a timer to stop the video playback after 5 seconds
     const timer = setTimeout(() => {
       setShouldPlay(false);
     }, 10000);
 
     return () => {
-      // Clear the timer when the component unmounts or shouldPlay changes
       clearTimeout(timer);
     };
   }, [shouldPlay]);
@@ -44,6 +40,7 @@ function PlayVideo({ movie }) {
         controls={false}
         playing={shouldPlay}
         muted={isMuted}
+        loop={true}
         // light={true}
       />
     </div>

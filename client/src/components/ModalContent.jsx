@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useMovies } from "../context/MovieProvider.jsx";
@@ -12,8 +12,18 @@ import AddToList from "./AddToList.jsx";
 import PlayButton from "./PlayButton.jsx";
 import PlayVideo from "./Video.jsx";
 import MuteButton from "./MuteButton.jsx";
+
 function ModalContent({ closeModal, movie }) {
   const { movies } = useMovies();
+  const [showVideo, setShowVideo] = useState(true);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShowVideo(false);
+    }, 10000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   const releaseYear = movie.release_date.substring(0, 4);
   const randomNumber = Math.floor(Math.random() * 21) + 80;
@@ -23,7 +33,15 @@ function ModalContent({ closeModal, movie }) {
       <div className="relative flex flex-col flex-grow overflow-y-auto">
         <div className="relative">
           <div className="flex-grow">
-            <PlayVideo movie={movie} />
+            {showVideo ? (
+              <PlayVideo movie={movie} />
+            ) : (
+              <img
+                className="w-fit h-96 block rounded-sm"
+                src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
+                alt="Movie Thumbnail"
+              />
+            )}
           </div>
 
           <button className="absolute top-0 right-0 mr-2" onClick={closeModal}>

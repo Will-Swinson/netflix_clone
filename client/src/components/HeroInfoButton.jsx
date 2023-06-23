@@ -14,6 +14,7 @@ function HeroInfoButton({ movie }) {
   const openModal = () => {
     setModalIsOpen(true);
     console.log(movie.title);
+    console.log("rando", movie);
   };
 
   const closeModal = () => {
@@ -39,7 +40,7 @@ function HeroInfoButton({ movie }) {
         contentClassName="flex flex-col h-full"
       >
         <div>
-          <ModalContent closeModal={closeModal} movie={blackMirror} />
+          <ModalContent closeModal={closeModal} movie={movie} />
         </div>
       </ReactModal>
     </div>
