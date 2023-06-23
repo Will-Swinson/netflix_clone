@@ -2,13 +2,24 @@ import app from "./middleware/middleware.js";
 import dotenv from "dotenv";
 import postgres from "postgres";
 import axios from "axios";
-
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 dotenv.config({ path: "../.env" });
 
 export const sql = postgres(process.env.DATABASE_URL);
 
 const PORT = process.env.PORT || 5000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
+// Serve static files from the React app
+app.use(express.static(join(__dirname, "build")));
+
+// The "catchall" handler: for any request that doesn't match one above,
+// send back React's index.html file.
+app.get("*", (req, res) => {
+  res.sendFile(join(__dirname, "build", "index.html"));
+});
 
 // Insert data into database
 
@@ -33,7 +44,6 @@ app.get("/api/insert", async (req, res) => {
     console.log(movieIds);
 
     const movieData = [];
-
 
     // Make an API request with a loop for each movie ID
     for (const movieId of movieIds) {
