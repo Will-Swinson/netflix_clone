@@ -28,7 +28,6 @@ export function MovieProvider({ children }) {
 
   async function handleSignup(formInputs) {
     try {
-      console.log(formInputs);
       const { email, password } = formInputs;
 
       const formData = {
