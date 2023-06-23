@@ -6,7 +6,10 @@ export default function NetflixProfile() {
     <div className="flex items-center justify-center w-screen h-screen bg-gray-600">
       <div className="w-[1300px] ">
         <ul className="grid grid-cols-5 gap-8 mb-8 profile-list">
-          <Link className="overflow-hidden transition-all duration-200 ease-in rounded-md profile-item ">
+          <Link
+            to="/home"
+            className="overflow-hidden transition-all duration-200 ease-in rounded-md profile-item "
+          >
             <a
               href="#"
               className="flex flex-col items-center gap-3 text-2xl text-white no-underline profile-link"
