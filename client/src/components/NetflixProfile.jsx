@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function NetflixProfile() {
   return (
     <div className="flex items-center justify-center w-screen h-screen bg-gray-600">
       <div className="w-[1300px] ">
         <ul className="grid grid-cols-5 gap-8 mb-8 profile-list">
-          <li className="overflow-hidden transition-all duration-200 ease-in rounded-md profile-item ">
+          <Link className="overflow-hidden transition-all duration-200 ease-in rounded-md profile-item ">
             <a
               href="#"
               className="flex flex-col items-center gap-3 text-2xl text-white no-underline profile-link"
@@ -17,7 +18,7 @@ export default function NetflixProfile() {
               />
               profile1
             </a>
-          </li>
+          </Link>
 
           <li className="overflow-hidden transition-all duration-200 ease-in rounded-md profile-item">
             <a
