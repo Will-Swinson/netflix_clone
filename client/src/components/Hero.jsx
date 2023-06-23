@@ -26,7 +26,7 @@ function Hero() {
   }, [movies]);
 
   return (
-    <div className="relative w-screen">
+    <div className="relative w-screen ">
       <div className="w-full h-[1000px]">
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=${heroLink}`}
