@@ -38,8 +38,8 @@ const createCheckoutSession = async (req, res) => {
     // Subscription mode
     mode: "subscription",
     // Success and cancel urls
-    success_url: "/profile-login",
-    cancel_url: "/signup4",
+    success_url: `${process.env.SUCCESS_URL}/profile-login`,
+    cancel_url: `${process.env.CANCEL_URL}/signup4``,
   });
   return session;
 };
