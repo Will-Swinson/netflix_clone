@@ -2,7 +2,7 @@ import stripe from "stripe";
 import dotenv from "dotenv";
 import { sql } from "../server.js";
 
-dotenv.config({ path: "../.env" });
+dotenv.config({ path: "../../.env" });
 
 // Give strip the stripe secret key
 
@@ -39,7 +39,7 @@ const createCheckoutSession = async (req, res) => {
     mode: "subscription",
     // Success and cancel urls
     success_url: `${process.env.SUCCESS_URL}/profile-login`,
-    cancel_url: `${process.env.CANCEL_URL}/signup4``,
+    cancel_url: `${process.env.CANCEL_URL}/signup4`,
   });
   return session;
 };
