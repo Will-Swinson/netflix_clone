@@ -12,7 +12,7 @@ function TrendingMovies({ title, id }) {
     .map((movie, id) => {
       return (
         <>
-          <Movie key={id} movie={movie} />
+          <Movie key={id + 4} movie={movie} />
         </>
       );
     });
@@ -29,22 +29,22 @@ function TrendingMovies({ title, id }) {
 
   return (
     <>
-      <h2 className="text-white font-bold md:text-xl p-4">{title}</h2>
+      <h2 className="p-4 font-bold text-white md:text-xl">{title}</h2>
       <div className="relative flex items-center group">
         <MdChevronLeft
           onClick={scrollLeft}
-          className="bg-white rounded-full left-0 absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
+          className="absolute left-0 z-10 hidden bg-white rounded-full opacity-50 cursor-pointer hover:opacity-100 group-hover:block"
           size={40}
         />
         <div
           id={"slider" + id}
-          className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
+          className="relative w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide"
         >
           {popularMovies}
         </div>
         <MdChevronRight
           onClick={scrollRight}
-          className="bg-white  right-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
+          className="absolute right-0 z-10 hidden bg-white rounded-full opacity-50 cursor-pointer hover:opacity-100 group-hover:block"
           size={40}
         />
       </div>

@@ -7,8 +7,8 @@ import { useMovies } from "../context/MovieProvider";
 function PlayButton() {
   return (
     <div>
-      <button className="absolute top-80 left-4 mb-2 flex bg-white text-black px-4 py-2 rounded font-bold w-32 h-12 items-center justify-center text-xl font-sans">
-        <BsFillPlayFill className="text-5xl" />
+      <button className="absolute flex items-center justify-center h-12 px-4 py-2 mb-2 font-sans text-xl font-bold text-black bg-white rounded w- top-80 left-4 hover:bg-netflix-red hover:text-white hover:border-2">
+        <BsFillPlayFill className="text-5xl " />
         Play
       </button>
     </div>

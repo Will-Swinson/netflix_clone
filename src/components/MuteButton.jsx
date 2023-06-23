@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { useMovies } from "../context/MovieProvider";
-import { RiVolumeMuteLine } from "react-icons/ri";
+import { RiVolumeMuteLine, RiVolumeUpLine } from "react-icons/ri";
 
 function MuteButton() {
-  const { handleMute } = useMovies();
+  const { handleMute, isMuted } = useMovies();
   return (
     <div>
       <button
         onClick={handleMute}
-        className="absolute top-80 right-2 mb-2 flex text-white font-bold w-32 h-12 items-center justify-center text-xl font-sans"
+        className="absolute flex items-center justify-center w-32 h-12 mb-2 font-sans text-xl font-bold text-white top-80 right-2"
       >
-        <RiVolumeMuteLine className="text-4xl" />
+        {!isMuted ? (
+          <RiVolumeUpLine size={35} />
+        ) : (
+          <RiVolumeMuteLine className="text-4xl" />
+        )}
       </button>
     </div>
   );

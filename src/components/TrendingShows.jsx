@@ -10,10 +10,9 @@ function TrendingShows({ title, id }) {
   const popularMovies = movies
     .filter((movie) => movie.type === 6)
     .map((movie, id) => {
-      console.log(movie);
       return (
         <>
-          <Movie key={id} movie={movie} />
+          <Movie key={id + 6} movie={movie} />
         </>
       );
     });

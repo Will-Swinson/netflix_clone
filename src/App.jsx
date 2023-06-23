@@ -49,7 +49,6 @@ function App() {
     ) {
       navigate("/");
     }
-    console.log(currentUser);
   }, [navigate]);
 
   return (
