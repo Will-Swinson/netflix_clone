@@ -54,9 +54,7 @@ export async function getHorrorMovies() {
 // MOVIE QUERIES
 app.get("/api/movies/set", async (req, res) => {
   try {
-
-    const result = await axios.get(requestsMovies.requestUpcomingMovies);
-
+    const result = await axios.get(requestsMovies.requestTrendingMovies);
     console.log("result", result.data.results);
     const movieData = result.data.results.map((movie) => {
       return {
@@ -99,8 +97,7 @@ app.get("/api/movies/set", async (req, res) => {
       ${movie.backdrop_path},
       ${movie.genre_ids},
       ${movie.id},
-      ${3},
-
+      ${4},
       ${movie.title},
       ${movie.original_language},
       ${movie.original_title},
