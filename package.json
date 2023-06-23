@@ -10,7 +10,8 @@
     "dev:backend": "npm run start --workspace=backend",
     "host": "concurrently \"npm run host:client\" \"npm run host:backend\"",
     "host:client": "npm run host --workspace=client",
-    "host:backend": "npm run host --workspace=backend"
+    "host:backend": "npm run host --workspace=backend",
+    "ssr": "node ./backend/server.js"
   },
   "workspaces": [
     "backend",
