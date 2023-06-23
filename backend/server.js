@@ -2,6 +2,7 @@ import app from "./middleware/middleware.js";
 import dotenv from "dotenv";
 import postgres from "postgres";
 import axios from "axios";
+import express from "express";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 dotenv.config({ path: "../.env" });
