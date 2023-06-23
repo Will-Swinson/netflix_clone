@@ -6,8 +6,6 @@ import MoreInfoButton from "./MoreInfo.jsx";
 const Movie = ({ movie, id }) => {
   const [like, setLike] = useState(false);
 
-  console.log(movie);
-
   return (
     <div className="w-[160px] sm:w-[200px] md:w-[250px] lg:w-[280px] inline-block cursor-pointer relative p-2">
       <img
@@ -24,7 +22,6 @@ const Movie = ({ movie, id }) => {
           </p>
         </p>
 
-
         {/* <p>
           {like ? (
             <AiFillHeart
@@ -38,7 +35,6 @@ const Movie = ({ movie, id }) => {
             />
           )}
         </p> */}
-
       </div>
     </div>
   );

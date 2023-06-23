@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import { useMovies } from "../context/MovieProvider";
 
-function PlayVideo() {
+function PlayVideo({ movie }) {
+  console.log(movie);
   const { isPlaying } = useMovies();
   const [shouldPlay, setShouldPlay] = useState(true);
   const playerRef = useRef(null);
@@ -37,12 +38,13 @@ function PlayVideo() {
     <div className="w-full h-96">
       <ReactPlayer
         ref={playerRef}
-        url="https://www.youtube.com/watch?v=5jY1ecibLYo"
+        url={`https://www.youtube.com/watch?v=${movie?.video_key}`}
         width="100%"
         height="100%"
         controls={false}
         playing={shouldPlay}
         muted={isMuted}
+        // light={true}
       />
     </div>
   );

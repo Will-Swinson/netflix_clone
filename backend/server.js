@@ -5,11 +5,7 @@ import axios from "axios";
 
 dotenv.config();
 
-console.log(process.env.DATABASE_URL, process.env.PORT);
-
 export const sql = postgres(process.env.DATABASE_URL);
-
-console.log(process.env.API_KEY);
 
 const PORT = process.env.PORT || 5000;
 

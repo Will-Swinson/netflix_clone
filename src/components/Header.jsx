@@ -8,7 +8,6 @@ function Header() {
   const { handleGetList } = useMovies();
   const [show, setShow] = useState(window.innerWidth);
 
-  console.log(show);
   useEffect(() => {
     window.addEventListener("resize", () => {
       setShow(window.innerWidth);

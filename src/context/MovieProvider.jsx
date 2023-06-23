@@ -18,7 +18,7 @@ export function MovieProvider({ children }) {
   const [movies, setMovies] = useState([]);
   const [signUpData, setSignUpData] = useState({});
   const [selectedPlan, setSelectedPlan] = useState(4);
-  
+
   const [myList, setMyList] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -159,7 +159,7 @@ export function MovieProvider({ children }) {
   };
 
   const handleMute = () => {
-    setIsMuted(false);
+    setIsMuted((prevIsMuted) => !prevIsMuted);
   };
 
   return (
