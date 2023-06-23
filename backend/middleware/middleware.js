@@ -7,7 +7,7 @@ import myListRouter from "../routes/myListRoutes.js";
 import movieRouter from "../routes/movieRoutes.js";
 import stripeRouter from "../routes/stripeRoutes.js";
 import { hashPasswordMiddleware } from "../utils/auth.js";
-dotenv.config();
+dotenv.config({ path: "../.env" });
 
 const app = express();
 

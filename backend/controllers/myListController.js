@@ -1,7 +1,6 @@
 import { sql } from "../server.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import { move } from "formik";
 
 // Get environment variables
 dotenv.config();

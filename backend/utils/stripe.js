@@ -2,7 +2,7 @@ import stripe from "stripe";
 import dotenv from "dotenv";
 import { sql } from "../server.js";
 
-dotenv.config();
+dotenv.config({ path: "../.env" });
 
 // Give strip the stripe secret key
 
@@ -13,8 +13,6 @@ const subscriptionPlans = new Map([
   [3, { price: process.env.PRICE_ID_STANDARD }],
   [4, { price: process.env.PRICE_ID_PREMIUM }],
 ]);
-
-const price = process.env.PRICE_ID;
 
 const stripeInstance = stripe(process.env.STRIPE_SECRET_KEY);
 
