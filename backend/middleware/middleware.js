@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use("/api/signup", hashPasswordMiddleware, signupRouter);
 app.use("/api/login", loginRouter);
-app.use("/api/my_list", myListRouter);
+app.use("/api/my-list", myListRouter);
 app.use("/api/movies", movieRouter);
 app.use("/api/stripe/charge", stripeRouter);
 export default app;

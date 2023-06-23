@@ -1,6 +1,6 @@
 /* Color ------------------------------------------- */
 
-:root {
+/* :root {
   --color-invalid: #e50914;
   --color-invalid-hover: #f11722;
   --color-invalid-shadow: #e509146b;
@@ -9,7 +9,7 @@
   --color-absolute: rgb(62, 62, 62);
   --color-flag: rgb(232, 225, 225);
   --color-footer-bg: #f3f3f3;
-}
+} */
 
 /* Box Sizing -------------------------------------- */
 
@@ -46,7 +46,6 @@ span {
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: white;
 }
 
 /* Text Style -------------------------------------- */

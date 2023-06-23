@@ -19,6 +19,7 @@ function ModalContent({ closeModal, movie }) {
   const randomNumber = Math.floor(Math.random() * 21) + 80;
 
   return (
+
     <div className="relative flex flex-col h-full w-full overflow-hidden">
       <div className="relative flex flex-col flex-grow overflow-y-auto">
         <div className="relative">
@@ -40,6 +41,7 @@ function ModalContent({ closeModal, movie }) {
               <BsHandThumbsUp className="text-4xl" />
             </button>
             <MuteButton />
+
           </div>
         </div>
         <div className="flex ml-2 p-5 items-center space-x-2">

@@ -1,44 +1,59 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useMovies } from "../context/MovieProvider.jsx";
+import { Link } from "react-router-dom";
+import DefaultDropdown from "./DefaultDropdown.jsx";
 
 function Header() {
+  const { handleGetList } = useMovies();
+  const [show, setShow] = useState(window.innerWidth);
+
+  console.log(show);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setShow(window.innerWidth);
+    });
+  }, [window.innerWidth]);
+
   return (
-    <div className="fixed z-10 bg-black bg-opacity-90">
-      <div className="flex items-center justify-between w-screen h-20 text-lg text-white">
-        <div className="flex ">
-          <img
-            className="h-10 ml-6 sm:ml-12 w-28 sm:w-36"
-            src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png"
-            alt="netflix-logo"
-          />
-        </div>
-        <div className="flex justify-between h-full sm:flex">
-          <ul className="flex  w-full ml-10">
-            <li className="flex items-center h-full ml-4 text-xs lg:text-xl">
+    <div className="fixed top-0 z-10 w-screen bg-black ">
+      <div className="flex items-center justify-between w-full h-20 text-lg text-white">
+        <img
+          className="w-10 h-4 ml-6 flex-2 md:w-12 xl:w-20"
+          src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png"
+          alt="netflix-logo"
+        />
+        {show < 665 ? (
+          <div className="flex items-center justify-start w-full h-full ml-10">
+            <DefaultDropdown />
+          </div>
+        ) : (
+          <ul className="flex w-full text-[8px] sm:text-[8px] md:text-[12px] font-semibold justify-around ml-6 flex-1 xl:text-[16px]">
+            <Link to="/home" className="">
               Home
-            </li>
-            <li className="flex items-center h-full ml-4 text-xs lg:text-xl">
+            </Link>
+            <Link to="/tv-shows" className="">
               TV Shows
-            </li>
-            <li className="flex items-center ml-4 text-xs lg:text-xl">
+            </Link>
+            <Link to="/movies" className="">
               Movies
-            </li>
-            <li className="flex items-center ml-4 text-xs lg:text-xl">
+            </Link>
+            <Link to="/new" className="">
               New & Popular
-            </li>
-            <li className="flex items-center ml-4 text-xs lg:text-xl">
+            </Link>
+            <Link to="/my-list" onClick={handleGetList}>
               My List
-            </li>
-            <li className="flex items-center ml-4 text-xs lg:text-xl">
+            </Link>
+            <Link to="/language" className="f">
               Browse by Languages
-            </li>
+            </Link>
           </ul>
-        </div>
-        <div className="flex items-center">
-          <AiOutlineSearch className="w-6 h-6 ml-2 sm:ml-4" />
-          <ul className="flex items-center hidden sm:flex">
-            <li className="ml-2 sm:ml-4">Kids</li>
-            <li className="ml-2 sm:ml-4">DVD</li>
+        )}
+        <div className="flex items-center justify-end flex-2 ">
+          <AiOutlineSearch className="w-6 xl:w-10 xl:h-6" />
+          <ul className="flex text-[10px] md:text-[14px] xl:text-[16px]">
+            <li className="ml-2 ">Kids</li>
+            <li className="ml-2 ">DVD</li>
           </ul>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +61,7 @@ function Header() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 ml-2 sm:ml-4"
+            className="w-6 ml-2 md:w-6 xl:w-[25px]"
           >
             <path
               strokeLinecap="round"
@@ -55,7 +70,7 @@ function Header() {
             />
           </svg>
           <img
-            className="w-8 h-8 ml-2 mr-6 sm:ml-4 sm:mr-12"
+            className="w-6 ml-2 mr-4 md:w-8 xl:w-10 xl:mr-6"
             src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
             alt=""
           />
