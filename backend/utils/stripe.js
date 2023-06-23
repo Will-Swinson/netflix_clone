@@ -38,8 +38,8 @@ const createCheckoutSession = async (req, res) => {
     // Subscription mode
     mode: "subscription",
     // Success and cancel urls
-    success_url: "http://localhost:5173/profile-login",
-    cancel_url: "http://localhost:5173/signup4",
+    success_url: "/profile-login",
+    cancel_url: "/signup4",
   });
   return session;
 };
