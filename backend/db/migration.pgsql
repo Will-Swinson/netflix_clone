@@ -1,12 +1,12 @@
-DROP TABLE IF EXISTS my_list,users, api_data;
+
+DROP TABLE IF EXISTS users, my_list, api_data, my_list_movies;
 
 
 CREATE TABLE users
 (
   id       serial NOT NULL,
-  username TEXT   NOT NULL,
-  password TEXT   NOT NULL,
   email    TEXT   NOT NULL,
+  password TEXT   NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -42,5 +42,15 @@ CREATE TABLE api_data
   video         BOOLEAN NULL,
   vote_average  FLOAT NULL,
   vote_count    INT NULL,
+  video_key     TEXT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE my_list_movies
+(
+my_list_id INT NOT NULL,
+api_data_id INT NOT NULL,
+FOREIGN KEY (my_list_id) REFERENCES my_list (id),
+PRIMARY KEY (my_list_id, api_data_id)
+);
+

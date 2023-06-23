@@ -3,13 +3,9 @@ import dotenv from "dotenv";
 import postgres from "postgres";
 import axios from "axios";
 
-dotenv.config();
-
-console.log(process.env.DATABASE_URL, process.env.PORT);
+dotenv.config({ path: "../.env" });
 
 export const sql = postgres(process.env.DATABASE_URL);
-
-console.log(process.env.API_KEY);
 
 const PORT = process.env.PORT || 5000;
 
@@ -35,6 +31,7 @@ const requestsMovies = {
   requestUpcomingMovies: `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`,
   requestTrendingMovies: `https://api.themoviedb.org/3/trending/movie/day?api_key=${key}`,
   requestHorrorMovies: `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=27`,
+
   requestTrendingShows: `https://api.themoviedb.org/3/trending/tv/day?api_key=${key}`,
 };
 
@@ -65,14 +62,70 @@ export async function getHorrorMovies() {
   return result.data.results;
 }
 
-//  Needed Information from API
-// TV information
-// - Name, adult, backdrop_path, first_air_date, genre_ids, id, media_type, origin_country, original_name, overview, popularity, poster_path, vote_average, vote_count
+// MOVIE QUERIES
+app.get("/api/movies/set", async (req, res) => {
+  try {
+    const result = await axios.get(requestsMovies.requestPopularMovies);
+    console.log("result", result.data.results);
+    const movieData = result.data.results.map((movie) => {
+      return {
+        adult: movie.adult,
+        backdrop_path: movie.backdrop_path,
+        genre_ids: movie.genre_ids,
+        id: movie.id,
+        original_language: movie.original_language,
+        original_title: movie.original_title,
+        overview: movie.overview,
+        popularity: movie.popularity,
+        poster_path: movie.poster_path,
+        release_date: movie.release_date,
+        title: movie.title,
+        vote_average: movie.vote_average,
+        vote_count: movie.vote_count,
+      };
+    });
 
-// Movie information
-// - adult, backdrop_path, genre_ids, id, original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count
+    for (const movie of movieData) {
+      // Insert data into database
+      await sql`
+    INSERT INTO api_data (
+      adult,
+      backdrop_path,
+        genre_ids,
+        id,
+        type,
+        title,
+        original_language,
+        original_title,
+        overview,
+        popularity,
+        poster_path,
+        release_date,
+      vote_average,
+      vote_count
+      ) VALUES (
+        ${movie.adult},
+      ${movie.backdrop_path},
+      ${movie.genre_ids},
+      ${movie.id},
+      ${1},
+      ${movie.title},
+      ${movie.original_language},
+      ${movie.original_title},
+      ${movie.overview},
+      ${movie.popularity},
+      ${movie.poster_path},
+      ${movie.release_date},
+      ${movie.vote_average},
+      ${movie.vote_count}
+      ) ON CONFLICT (id) DO NOTHING RETURNING *;`;
+    }
 
-// Extracting data from API
+    res.status(200).json({ status: "success", data: movieData });
+  } catch (err) {
+    res.status(500).json({ err: err.message });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
