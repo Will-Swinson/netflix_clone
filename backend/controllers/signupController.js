@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import sendEmail from "../nodemailer/nodeMailer.js";
 
 // Get environment variables
-dotenv.config();
+dotenv.config({ path: "../.env" });
 
 export const createUser = async (req, res) => {
   try {

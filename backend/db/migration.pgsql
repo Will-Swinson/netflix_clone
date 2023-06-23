@@ -42,6 +42,7 @@ CREATE TABLE api_data
   video         BOOLEAN NULL,
   vote_average  FLOAT NULL,
   vote_count    INT NULL,
+  video_key     TEXT NULL,
   PRIMARY KEY (id)
 );
 
