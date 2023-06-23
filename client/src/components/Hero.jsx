@@ -31,7 +31,7 @@ function Hero() {
   }, [heroLink]);
 
   return (
-    <div className="relative w-screen">
+    <div className="relative w-screen ">
       <div className="w-full h-[1000px]">
         <ReactPlayer
           url={

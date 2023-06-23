@@ -8,7 +8,7 @@ import TrendingShows from "./TrendingShows.jsx";
 
 export default function Rows() {
   return (
-    <div className="p-0 m-0 bg-black">
+    <div className="p-0 m-0 bg-[#141414]">
       <PopularMovies id={1} title={"Popular"} />
       <TopRatedMovies id={2} title={"Top Rated"} />
       <UpcomingMovies id={3} title={"Upcoming"} />
