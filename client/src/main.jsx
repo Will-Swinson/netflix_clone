@@ -9,7 +9,7 @@ dotenv.config({path: ../.env});
   
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.BASENAME}>
+    <BrowserRouter basename="/">
       <MovieProvider>
         <App />
       </MovieProvider>
