@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import ReactModal from "react-modal";
 import ModalContent from "./ModalContent";
 
@@ -21,21 +21,19 @@ function MoreInfoButton({ movie }) {
 
   return (
     <div>
-      <button
-        onClick={openModal}
-        // className="flex items-center justify-center w-40 h-12 px-4 py-2 text-lg font-bold text-white bg-gray-600 rounded bg-opacity-70"
-      >
-        <IoIosArrowDropdown className="ml-2 text-4xl" />
+      <button onClick={openModal}>
+        <IoIosArrowDropdown className="text-4xl ml-2" />
+
       </button>
       <ReactModal
         ariaHideApp={false}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         overlayClassName="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center"
-        className="p-0 flex bg-[#141414] rounded-lg  h-5/6  text-white overflow-auto justify-center "
-        contentClassName="flex flex-col h-full"
+        className="p-0 flex bg-[#141414] rounded-lg h-5/6 text-white justify-center "
+        contentLabel="Modal"
       >
-        <div>
+        <div className="flex flex-col">
           <ModalContent closeModal={closeModal} movie={movie} />
         </div>
       </ReactModal>

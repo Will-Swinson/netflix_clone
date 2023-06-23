@@ -10,6 +10,7 @@ export const createUser = async (req, res) => {
   try {
     // destrcture name, email, password from req.body
     const { email, password } = req.body;
+    console.log(email, password);
 
     // query database to check if user exists
     const userExists = await sql`SELECT * FROM users WHERE email = ${email}`;

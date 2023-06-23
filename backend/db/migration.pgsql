@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS users, my_list, api_data, my_list_movies;
 
 

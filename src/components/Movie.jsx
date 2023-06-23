@@ -24,6 +24,7 @@ const Movie = ({ movie, id }) => {
           </p>
         </p>
 
+
         {/* <p>
           {like ? (
             <AiFillHeart
@@ -37,6 +38,7 @@ const Movie = ({ movie, id }) => {
             />
           )}
         </p> */}
+
       </div>
     </div>
   );

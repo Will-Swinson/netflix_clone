@@ -18,7 +18,10 @@ export function MovieProvider({ children }) {
   const [movies, setMovies] = useState([]);
   const [signUpData, setSignUpData] = useState({});
   const [selectedPlan, setSelectedPlan] = useState(4);
+  
   const [myList, setMyList] = useState([]);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,8 +37,8 @@ export function MovieProvider({ children }) {
       };
 
       // Send Axios Post Request
+      console.log(formData);
       const response = await axios.post("/api/signup", formData);
-      console.log(response);
       if (!response.data) {
         throw new Error("Something went wrong");
       }
@@ -151,6 +154,13 @@ export function MovieProvider({ children }) {
   });
 
   // set Width of Window for Header
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
+
+  const handleMute = () => {
+    setIsMuted(false);
+  };
 
   return (
     <MovieContext.Provider
@@ -165,6 +175,10 @@ export function MovieProvider({ children }) {
         handleAddToList,
         handleGetList,
         myList,
+        isPlaying,
+        handlePlay,
+        isMuted,
+        handleMute,
       }}
     >
       {children}
