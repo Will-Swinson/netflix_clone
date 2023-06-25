@@ -21,8 +21,10 @@ import "./App.css";
 import NetflixProfile from "./components/NetflixProfile.jsx";
 import TVShowsPage from "./pages/TVShowsPage.jsx";
 function App() {
-  const { setMovies } = useMovies();
+  const { movies, setMovies } = useMovies();
   const navigate = useNavigate();
+
+  console.log(movies);
 
   useEffect(() => {
     // Fetch data from API

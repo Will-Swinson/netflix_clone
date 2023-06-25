@@ -27,7 +27,7 @@ const options = {
 app.get("/api/insert", async (req, res) => {
   try {
     // Make a query for all movie IDs
-    const movieIds = await sql`SELECT id FROM api_data WHERE type > 5;`;
+    const movieIds = await sql`SELECT id FROM api_data WHERE type < 6;`;
 
     console.log(movieIds);
 
@@ -36,21 +36,23 @@ app.get("/api/insert", async (req, res) => {
     // Make an API request with a loop for each movie ID
     for (const movieId of movieIds) {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/tv/${movieId.id}/videos`,
+        `https://api.themoviedb.org/3/movie/${movieId.id}`,
         options
       );
       movieData.push(response.data);
     }
 
-    console.log(movieData);
+    console.log("MOVIE DATA:", movieData);
     for (const movie of movieData) {
-      for (const result of movie.results) {
-        console.log(result.key);
-        // You can use the result.key value to insert into the database or perform other operations
+      // You can use the result.key value to insert into the database or perform other operations
+      for (const genre of movie.genres) {
+        console.log(genre.name);
         const selectedMovies = await sql`
-    UPDATE api_data
-    SET video_key = ${result.key}
-    WHERE id = ${movie.id};`;
+        UPDATE api_data
+        SET genre_names = ARRAY_APPEND(genre_names, ${genre.name})
+        WHERE id = ${movie.id}
+        RETURNING *;
+      `;
 
         console.log(selectedMovies);
       }
