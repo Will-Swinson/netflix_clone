@@ -25,7 +25,9 @@ function UpcomingMovies({ title, id }) {
 
   return (
     <>
-      <h2 className="p-4 font-bold text-white md:text-xl">{title}</h2>
+      {upcomingMovies.length > 0 && (
+        <h2 className="p-4 font-bold text-white md:text-xl">{title}</h2>
+      )}
       <div className="relative flex items-center group">
         <MdChevronLeft
           onClick={scrollLeft}

@@ -6,9 +6,9 @@ import "tailwindcss/tailwind.css";
 import LandingPage from "./pages/LandingPage.jsx";
 import SignInPage from "./pages/SignInPage.jsx";
 import MovieHomePage from "./pages/MovieHomePage.jsx";
-
+import MoviesPage from "./pages/MoviesPage.jsx";
 import MyListPage from "./pages/MyListPage.jsx";
-
+import NewAndPopularPage from "./pages/NewAndPopularPage.jsx";
 import SignUpPlanPage1 from "./pages/SignUpPlanPage1.jsx";
 import SignUpPlanPage2 from "./pages/SignUpPlanPage2.jsx";
 import SignUpPlanPage3 from "./pages/SignUpPlanPage3.jsx";
@@ -19,6 +19,7 @@ import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import NetflixProfile from "./components/NetflixProfile.jsx";
+import TVShowsPage from "./pages/TVShowsPage.jsx";
 function App() {
   const { setMovies } = useMovies();
   const navigate = useNavigate();
@@ -61,6 +62,9 @@ function App() {
         <Route path="/signup4" element={<SignUpPlanPage4 />} />
         <Route path="/payment" element={<SignUpPlanPaymentPage />} />
         <Route path="/home" element={<MovieHomePage />} />
+        <Route path="/tv-shows" element={<TVShowsPage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/new-and-popular" element={<NewAndPopularPage />} />
         <Route path="/my-list" element={<MyListPage />} />
         <Route path="/profile-login" element={<NetflixProfile />} />
         <Route path="/" element={<LandingPage />} />
