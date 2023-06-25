@@ -13,7 +13,6 @@ import AddToList from "./AddToList.jsx";
 import PlayButton from "./PlayButton.jsx";
 import PlayVideo from "./Video.jsx";
 import MuteButton from "./MuteButton.jsx";
-import { move } from "formik";
 
 function ModalContent({ closeModal, movie }) {
   const { movies, setIsPlaying } = useMovies();
