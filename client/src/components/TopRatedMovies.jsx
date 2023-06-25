@@ -8,7 +8,7 @@ function TopRatedMovies({ title, id }) {
 
   // Filter movies by type for popular movies
   const popularMovies = movies
-    .filter((movie) => movie.type === 6)
+    .filter((movie) => movie.type === 2)
     .map((movie, id) => {
       return (
         <>
