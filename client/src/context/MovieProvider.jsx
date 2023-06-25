@@ -20,7 +20,7 @@ export function MovieProvider({ children }) {
   const [selectedPlan, setSelectedPlan] = useState(4);
 
   const [myList, setMyList] = useState([]);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
 
   const location = useLocation();
@@ -165,6 +165,7 @@ export function MovieProvider({ children }) {
     <MovieContext.Provider
       value={{
         movies,
+        setIsPlaying,
         setMovies,
         signUpData,
         setSignUpData,
@@ -178,6 +179,7 @@ export function MovieProvider({ children }) {
         handlePlay,
         isMuted,
         handleMute,
+        setMyList,
       }}
     >
       {children}

@@ -74,21 +74,38 @@ export const removeFromList = async (req, res) => {
   try {
     // get token from header
     const token = req.headers.authorization.split(" ")[1];
+    console.log("token", token);
     // if token doesnt exist, return error
     if (!token) throw new Error("No Session Found");
     // if token exists, get user id from token
-    const { id: userListId } = jwt.verify(token, process.env.JWT_SECRET);
-    // get movie id from req.body
-    const { movieId } = req.body;
+    const { id: userId } = jwt.verify(token, process.env.JWT_SECRET);
+    console.log(userId);
+    // get movie id from req.params
+    const movieId = req.params.id;
+
+    console.log("movieID", movieId);
+    // Get users list id
+    const [{ id: userListId }] =
+      await sql`SELECT id FROM my_list WHERE user_id = ${userId};`;
+
+    console.log("USERLISTID", userListId);
+
     // query database to check if movie exists in users list
     const movieExists =
-      await sql`SELECT * FROM mylist WHERE user_id = ${userListId} AND movie_id = ${movieId}`;
+      await sql`SELECT * FROM my_list_movies WHERE my_list_id = ${userListId} AND api_data_id = ${movieId}`;
+
+    console.log("moveExists", movieExists);
     // if movie exists, delete movie from users list
     if (movieExists) {
+      const deletedMovie =
+        await sql`DELETE FROM my_list_movies WHERE my_list_id = ${userListId} AND api_data_id = ${movieId} RETURNING *;`;
+
+      console.log(deletedMovie);
+      // query database for users list
       const newList =
-        await sql`DELETE FROM mylist WHERE user_id = ${userListId} AND movie_id = ${movieId}`;
+        await sql`SELECT api_data_id FROM my_list_movies WHERE my_list_id = ${userListId};`;
       // return users list
-      res.status(200).json({ status: "success", newList });
+      res.status(200).json({ status: "success", newList, deletedMovie });
     } else {
       throw new Error("Movie does not exist in list");
     }

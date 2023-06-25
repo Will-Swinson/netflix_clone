@@ -12,7 +12,7 @@ import { RiVolumeMuteLine, RiVolumeUpLine } from "react-icons/ri";
 import { move } from "formik";
 
 function Hero() {
-  const { movies, isMuted, handleMute } = useMovies();
+  const { movies, isMuted, handleMute, setIsPlaying, isPlaying } = useMovies();
   const [heroLink, setHeroLink] = useState("");
   const [randomMovie, setRandomMovie] = useState(null);
 
@@ -33,7 +33,7 @@ function Hero() {
           width="100%"
           height="100%"
           controls={false}
-          playing={true}
+          playing={isPlaying}
           muted={isMuted}
           style={{
             objectFit: "cover",
@@ -51,7 +51,15 @@ function Hero() {
       <div className="absolute flex-col items-center ml-12 bottom-10">
         <div className="flex">
           <div className="flex items-center justify-center w-full h-full">
-            <button className="flex items-center justify-center w-32 h-12 px-4 py-2 mr-2 text-xl font-bold text-black bg-white rounded">
+            <button
+              onClick={() =>
+                setIsPlaying((prevIsPlaying) => {
+                  console.log("prevIsPlaying", prevIsPlaying);
+                  return !prevIsPlaying;
+                })
+              }
+              className="flex items-center justify-center w-32 h-12 px-4 py-2 mr-2 text-xl font-bold text-black bg-white rounded z-10"
+            >
               <BsFillPlayFill className="text-5xl" />
               Play
             </button>

@@ -8,7 +8,7 @@ export default function SignInPage() {
   console.log(formik.values);
   return (
     <div
-      className="relative flex items-center justify-center h-screen overflow-hidden bg-no-repeat bg-cover"
+      className="relative   flex items-center justify-center h-screen overflow-hidden bg-no-repeat bg-cover"
       style={{
         backgroundImage:
           "url('https://assets.nflxext.com/ffe/siteui/vlv3/76c10fc9-7ccd-4fbf-bc59-f16a468921ca/4fb4af6e-d0ca-4c7f-b004-b34226727e55/IN-en-20230529-popsignuptwoweeks-perspective_alpha_website_large.jpg')",

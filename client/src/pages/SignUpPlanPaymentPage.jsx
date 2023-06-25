@@ -16,7 +16,7 @@ export default function SignUpPlanPaymentPage() {
   console.log(formik.values);
   return (
     <div className="flex flex-col h-screen">
-      <nav className="nav nav-3">
+      <nav className="nav nav-3 bg-white">
         <a href="">
           <img
             className="logo"
@@ -28,14 +28,14 @@ export default function SignUpPlanPaymentPage() {
           Sign Out
         </a>
       </nav>
-      <section className="flex items-start justify-center h-full">
+      <section className="flex items-start bg-white justify-center h-full">
         <form
           onSubmit={(e) => {
             handleStripePayment(selectedPlan, e);
           }}
-          className="flex flex-col items-center justify-center w-full mx-auto mt-20 "
+          className="flex flex-col items-center justify-center w-4/5 mx-auto mt-20 "
         >
-          <div className="flex flex-col items-center justify-center w-1/2">
+          <div className="flex flex-col items-center justify-center w-full mb-10">
             <img src={lockImg} className="mb-8 w-14" />
             <p className="flex text-md ">
               STEP&nbsp;<p className="font-bold">3&nbsp;</p>OF&nbsp;{" "}
@@ -50,14 +50,16 @@ export default function SignUpPlanPaymentPage() {
             <p className="w-[300px] text-xl font-bold text-center">
               Secure for peace of mind. Cancel easily online.
             </p>
-            <div className="flex flex-col w-full mt-6">
-              <p className="flex justify-end w-full mb-2">
+            <div className="flex flex-col w-full items-center justify-center mr-6 mt-6">
+              <p className="flex justify-end w-[440px] mb-2">
                 End-to-end encrypted 🔒
               </p>
-              <button className="w-full rounded h-[75px] mb-2 border-4 hover:border-2 border-gray-400 bg-white text-3xl justify-start font-semibold text-black flex">
+              <button className="w-full max-w-md rounded h-[75px] mb-2 border-4 hover:border-2 border-gray-400 bg-white text-3xl justify-start font-semibold text-black flex">
                 <div className="flex justify-between w-full ml-6">
-                  <div className="flex w-full">
-                    <p className="text-lg font-bold">Credit or Debit Card</p>
+                  <div className="flex w-3/4">
+                    <p className="sm:text-lg text-xs w-full font-bold">
+                      Credit or Debit Card
+                    </p>
                     <FaCcVisa className="ml-2" />
                     <FaCcMastercard className="ml-2" />
                     <FaCcDiscover className="ml-2" />
@@ -70,7 +72,7 @@ export default function SignUpPlanPaymentPage() {
           </div>
         </form>
       </section>
-      <footer className="footer footer-gray margin-top-1">
+      <footer className="footer footer-gray ">
         <div className="footer-container margin-inline">
           <p>
             Questions? <br />

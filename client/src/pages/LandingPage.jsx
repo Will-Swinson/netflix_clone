@@ -40,18 +40,18 @@ export default function LandingPage() {
   return (
     <>
       <div
-        className="relative bg-cover"
+        className="relative w-screen bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage:
             "url(https://149695847.v2.pressablecdn.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg)",
           height: "55vh",
         }}
       >
-        <nav className="flex relative w-full h-[50px] xl:h-[100px] justify-between items-center ">
-          <div className="h-full w-[120px] xl:w-[175px] p-2 ml-6 xl:ml-[190px] mt-6 ">
+        <nav className="flex relative w-full xl:h-[100px] justify-between items-center ">
+          <div className=" w-[100px] sm:w-[125px]  xl:w-[175px] p-2 ml-2 xl:ml-[190px] mt-4 ">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png" />
           </div>
-          <div className="h-full w-auto relative flex mr-[100px] xl:mr-[300px] mt-12 ">
+          <div className=" w-auto relative flex mr-4 sm:mr-10 xl:mr-[300px] mt-4 ">
             <BsGlobe2 className="text-white h-4 w-4  absolute top-2 left-1.5 " />
             <select className="flex justify-center items-center selector-class h-8 mr-2 w-[120px] rounded text-white bg-black bg-opacity-50 border-[0.5px] border-white text-[14px] font-bold text-center">
               <option>English</option>
@@ -61,25 +61,27 @@ export default function LandingPage() {
             </button>
           </div>
         </nav>
-        <div className=" text-white justify-center absolute w-full mx-auto top-[36%]  ">
-          <div className="flex flex-col items-center justify-center text-white">
-            <h2 className="mb-2 text-xl font-bold text-center md:text-3xl xl:text-5xl">
+        <div className=" text-white justify-center absolute w-full mx-auto mt-6 sm:mt-10  ">
+          <div className="flex flex-col items-center w-full justify-center text-white">
+            <h2 className="mb-2 text-3xl w-full font-bold text-center md:text-3xl xl:text-5xl">
               Unlimited movies, TV Shows, and more
             </h2>
-            <h3 className="text-md md:text-[20px] mb-4 ">
+            <h3 className="text-md md:text-[20px] mb-4 font-semibold ">
               Watch anywhere. Cancel anytime.
             </h3>
-            <p className="text-md md:text-[20px] mb-2">
+            <p className="text-md sm:w-3/4 mb-4 font-semibold text-center">
               {" "}
               Ready to watch? Enter your email to create or restart your
               membership.
             </p>
           </div>
-          <form className="flex items-start justify-center w-full h-full ">
-            <div className={`flex flex-col font-bold ${hasErrorStyle}   `}>
+          <form className=" flex flex-col sm:flex-row  items-center sm:items-start justify-center w-full xl:w-full h-full ">
+            <div
+              className={`flex flex-col xl:w-1/4  sm:w-2/5 items-center xl:items-start xl:mr-20 font-bold ${hasErrorStyle}   `}
+            >
               <input
                 id="inputSignup"
-                className={`font-bold w-full md:w-[300px] h-[52px] rounded bg-gray-800  px-4 bg-opacity-[70%] text-md md:text-l border border-1 focus:text-xs placeholder-move-up transition-transform duration-1000`}
+                className={`font-bold w-full md:w-[300px] xl:w-[500px] h-[52px] rounded bg-gray-800  px-4 bg-opacity-[70%] text-md md:text-l border border-1 focus:text-xs placeholder-move-up transition-transform duration-1000`}
                 type="text"
                 name="email"
                 placeholder={"Email Address"}
@@ -89,27 +91,26 @@ export default function LandingPage() {
               />
               {formik.errors.email ? formik.errors.email : null}
             </div>
-            <button className="w-[275px] h-[55px] md:w-[175px] ml-2 rounded bg-red-600 font-bold text-xl md:text-1xl">
+            <button className="w-3/5 xl:w-[250px] xl:ml-4 mt-4 sm:m-0 sm:mr-20 h-[55px] sm:w-[175px] ml-2 rounded bg-red-600 font-bold text-xl md:text-1xl">
               <Link to="/signup">Get Started</Link>
             </button>
           </form>
         </div>
       </div>
-      <div className="relative h-full bg-black">
+      <div className="relative w-full h-full bg-black">
         <div
-          className="absolute flex w-4/5 bg-no-repeat bg-cover top-0 xl:top-[-1.5%] left-[10%] justify-around"
+          className="absolute flex w-4/5  bg-no-repeat bg-cover top-2 sm:top-0 sm:rounded-none rounded xl:top-[-1.5%] left-[10%] justify-around"
           style={{
             backgroundImage: `url(${bluePurpleGradientBackground})`,
-            height: "15vh",
+            height: "20vh",
           }}
         >
-          <div className="flex items-center justify-center w-full h-full mr-48">
-            <div className="flex items-center justify-end flex-1 w-full h-full ">
-              <img src={popcornImg} className="w-[120px]" />
-            </div>
-            <div className="flex flex-col items-start justify-center flex-1 w-full h-full leading-10 text-white">
-              <h2 className="text-xl font-bold whitespace-nowrap">
-                {" "}
+          <div className="flex flex-col items-center justify-center  h-full ">
+            <div className="flex flex-col items-center sm:items-start sm:ml-[50%]  justify-center flex-1 w-full h-full leading-10 text-white">
+              <div className="flex items-start absolute top-[-30px] sm:top-1/4 left-0 lg:left-1/4 justify-start flex-1  ">
+                <img src={popcornImg} className="w-[80px] sm:w-1/5" />
+              </div>
+              <h2 className="text-lg font-bold flex text-center ">
                 The Netflix you love for just $6.99.
               </h2>
               <p className="text-lg">Get the Standard with ads plan.</p>
@@ -125,9 +126,9 @@ export default function LandingPage() {
         </div>
         {/* 1st div after signup */}
         <div className="w-full h-[900px] border-b-8 border-gray-600  text-white flex flex-col justify-start items-center  text-center xl:flex-row xl:justify-center xl:text-start ">
-          <div className="xl:flex text-center xl:flex-col xl:items-start xl:justify-center xl:h-[500px] xl:mt-24 mt-52">
+          <div className="xl:flex xl:w-[700px] xl:ml-10 text-center xl:flex-col xl:items-start xl:justify-center xl:h-[500px] xl:mt-24 mt-52">
             <h2 className="mb-10 text-5xl font-bold">Enjoy on your TV</h2>
-            <p className="text-xl">
+            <p className="text-xl xl:text-3xl xl:text-start  xl:w-full ">
               Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV,
               Blu-ray players, and more.
             </p>
@@ -142,30 +143,34 @@ export default function LandingPage() {
             />
           </div>
         </div>
-        <div className="w-full h-[800px] border-b-8 border-gray-600  text-white flex flex-col mx-auto justify-center items-center text-center lg:flex-row-reverse ">
-          <div className="flex flex-col items-center justify-center w-full h-full ml-20 xl:items-start">
-            <h2 className="mb-10 text-5xl font-bold">Watch everywhere</h2>
-            <p className="w-3/4 text-lg xl:text-2xl xl:text-start">
-              Stream unlimited movies and TV shows on your phone, tablet,
-              laptop, and TV.
-            </p>
-          </div>
-          <div className="relative w-3/4 xl:w-[1200px] xl:ml-32">
-            <div className="relative z-10">
-              <img src={appleVideoImg} className="w-[1200px]" />
+        <div className="w-full h-full border-b-8 border-gray-600  text-white flex flex-col mx-auto justify-center items-center text-center xl:flex-row-reverse">
+          <div className="flex flex-col xl:flex-row-reverse items-center justify-center w-full h-full xl:items-start mt-10 mb-10">
+            <div className="flex flex-col xl:justify-center xl:mt-20  xl:items-center xl:mr-20  w-full">
+              <h2 className="mb-10 text-3xl xl:text-5xl font-bold">
+                Watch everywhere
+              </h2>
+              <p className="xl:w-3/4  text-lg xl:text-2xl xl:text-start">
+                Stream unlimited movies and TV shows on your phone, tablet,
+                laptop, and TV.
+              </p>
             </div>
-            <img
-              className="absolute top-[10%] left-[18%] z-0 w-[62%] h-[52%]"
-              src={griddyGif}
-            />
+            <div className="relative w-3/4 xl:w-[1200px] xl:ml-32">
+              <div className="relative z-10">
+                <img src={appleVideoImg} className="w-full" />
+              </div>
+              <img
+                className="absolute top-[10%] left-[18%] z-0 w-[62%] h-[52%]"
+                src={griddyGif}
+              />
+            </div>
           </div>
         </div>
-        <div className="w-full h-[800px] border-b-8 border-gray-600  text-white flex flex-col justify-start items-center text-center xl:flex-row xl:justify-center xl:text-start ">
-          <div className="w-full xl:w-[600px] flex flex-col justify-center xl:items-start xl:justify-center md:h-[500px] xl:ml-72  xl:mr-32 ">
-            <h2 className="mb-10 text-5xl font-bold ">
+        <div className="w-full h-full border-b-8 border-gray-600  text-white flex flex-col justify-start items-center text-center xl:flex-row xl:justify-center xl:text-start ">
+          <div className="w-full xl:w-[500px] flex flex-col justify-center items-center xl:items-start xl:justify-center  xl:ml-20 xl:mr-32 mt-10   ">
+            <h2 className="mb-4 text-3xl xl:text-5xl font-bold ">
               Create profiles for kids
             </h2>
-            <p className="xl:w-[700px] text-xl ">
+            <p className="xl:w-[600px] xl:text-2xl xl:text-start sm:w-3/4 w-full justify-center h-full mb-6 text-center text-lg flex ">
               Send kids on adventures with their favorite characters in a space
               made just for them—free with your membership.
             </p>
@@ -174,12 +179,12 @@ export default function LandingPage() {
             <img src={kidImg} />
           </div>
         </div>
-        <div className="w-full h-[800px] border-b-8 border-gray-600  text-white flex flex-col justify-start items-center text-center xl:flex-row-reverse xl:justify-center xl:text-start ">
-          <div className="w-full xl:w-[600px] flex flex-col justify-center xl:items-start xl:justify-center md:h-[500px] xl:ml-10  xl:mr-32 ">
-            <h2 className="mb-10 text-5xl font-bold ">
+        <div className="w-full h-full border-b-8 border-gray-600  text-white flex flex-col justify-start items-center text-center xl:flex-row-reverse xl:justify-center xl:text-start ">
+          <div className="w-full xl:w-[600px] flex flex-col justify-center xl:items-start xl:justify-center  xl:ml-10 mt-10 xl:mr-32 ">
+            <h2 className="mb-10 text-2xl xl:text-6xl xl:w-full font-bold ">
               Download your shows to watch offline
             </h2>
-            <p className="xl:w-[700px] text-xl ">
+            <p className="xl:w-[700px] text-xl xl:text-3xl font-bold">
               Only available on ad-free plans.
             </p>
           </div>
@@ -187,24 +192,24 @@ export default function LandingPage() {
             <img src={phoneImg} />
           </div>
         </div>
-        <div className="w-full h-[1200px] border-b-8 border-gray-600  text-white ">
-          <div className="flex flex-col items-center justify-start w-full h-full ">
-            <h2 className="mt-16 text-5xl font-bold">
+        <div className="w-full h-full border-b-8 border-gray-600  text-white ">
+          <div className="flex flex-col items-center justify-center h-full w-full ">
+            <h2 className="w-full mt-10 text-3xl text-center font-bold">
               Frequently Asked Questions
             </h2>
-            <div className="flex flex-col items-center justify-start w-full h-full mt-8 ">
+            <div className="flex flex-col items-center justify-center w-4/5 h-full mt-8 ">
               <FrequentlyAsked
                 onDropDown={handleDropdown}
                 isDropped={isDropped.dropdown1}
                 title="What is Netflix?"
                 id="dropdown1"
               >
-                <p className="w-4/5 mt-6 mb-6">
+                <p className="mt-8 h-full w-4/5 mb-2">
                   Netflix is a streaming service that offers a wide variety of
                   award-winning TV shows, movies, anime, documentaries, and more
                   on thousands of internet-connected devices.
                 </p>
-                <p className="w-4/5 h-full">
+                <p className="h-full w-4/5">
                   You can watch as much as you want, whenever you want – all for
                   one low monthly price. There's always something new to
                   discover and new TV shows and movies are added every week!
@@ -274,12 +279,12 @@ export default function LandingPage() {
                 isDropped={isDropped.dropdown6}
                 title="is Netflix good for kids?"
               >
-                <p className="w-4/5 mt-2 mb-2">
+                <p className="w-4/5 mb-2">
                   The Netflix Kids experience is included in your membership to
                   give parents control while kids enjoy family-friendly TV shows
                   and movies in their own space.
                 </p>
-                <p className="w-4/5 mt-2 mb-2">
+                <p className="w-4/5">
                   Kids profiles come with PIN-protected parental controls that
                   let you restrict the maturity rating of content kids can watch
                   and block specific titles you don’t want kids to see.
@@ -291,14 +296,14 @@ export default function LandingPage() {
         </div>
         <div className="flex flex-col items-center justify-start w-full h-full text-center text-white ">
           <div className="w-full">
-            <h2 className="flex items-center justify-start w-full mt-10 mb-10 ml-10 text-xl font-bold">
+            <h2 className="flex items-center justify-start w-full mt-10 mb-10 ml-10 font-bold text-md">
               Questions? Call
               <a href="" className="ml-2 underline">
                 1-844-505-2993
               </a>
             </h2>
           </div>
-          <div className="flex justify-between w-full h-full">
+          <div className="flex flex-col sm:flex-row justify-between w-full h-full">
             <ul className="flex flex-col items-start justify-center ml-10 leading-[40px]">
               <a className="flex underline cursor-pointer whitespace-nowrap">
                 {" "}
@@ -319,6 +324,14 @@ export default function LandingPage() {
               <a className="flex underline cursor-pointer whitespace-nowrap">
                 {" "}
                 Legal Notices
+              </a>
+              <a className="flex underline cursor-pointer whitespace-nowrap">
+                {" "}
+                Privacy
+              </a>
+              <a className="flex underline cursor-pointer whitespace-nowrap">
+                {" "}
+                Speed Test
               </a>
             </ul>
             <ul className="flex flex-col items-start justify-center ml-10 leading-[40px]">
@@ -342,8 +355,12 @@ export default function LandingPage() {
                 {" "}
                 Only on Netflix
               </a>
+              <a className="flex underline cursor-pointer whitespace-nowrap">
+                {" "}
+                Redeem Gift Cards
+              </a>
             </ul>
-            <ul className="flex flex-col flex-wrap items-start justify-center ml-10 leading-[36px]">
+            <ul className="flex flex-col flex-wrap items-start justify-center ml-10 mr-20 leading-[36px]">
               <a className="flex underline cursor-pointer whitespace-nowrap">
                 {" "}
                 Account
@@ -364,23 +381,9 @@ export default function LandingPage() {
                 {" "}
                 Do Not Sell or Share My Personal Information
               </a>
-            </ul>
-            <ul className="flex flex-col items-start justify-center mr-32 leading-[40px]">
               <a className="flex underline cursor-pointer whitespace-nowrap">
                 {" "}
                 Media Center
-              </a>
-              <a className="flex underline cursor-pointer whitespace-nowrap">
-                {" "}
-                Redeem Gift Cards
-              </a>
-              <a className="flex underline cursor-pointer whitespace-nowrap">
-                {" "}
-                Privacy
-              </a>
-              <a className="flex underline cursor-pointer whitespace-nowrap">
-                {" "}
-                Speed Test
               </a>
             </ul>
           </div>

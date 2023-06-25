@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [react()],
   // Allows for you to just type /api/* in the front end and redirect to the backend
   server: {
+    host: "0.0.0.0",
     open: true,
     proxy: {
       "/api": `http://localhost:${process.env.PORT}`,
