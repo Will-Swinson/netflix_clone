@@ -8,13 +8,14 @@ import { BsHandThumbsUp } from "react-icons/bs";
 import { FaAudioDescription } from "react-icons/fa";
 import { LuSubtitles } from "react-icons/lu";
 import { MdOutlineHighQuality } from "react-icons/md";
+
 import AddToList from "./AddToList.jsx";
 import PlayButton from "./PlayButton.jsx";
 import PlayVideo from "./Video.jsx";
 import MuteButton from "./MuteButton.jsx";
 
 function ModalContent({ closeModal, movie }) {
-  const { movies } = useMovies();
+  const { movies, setIsPlaying } = useMovies();
   const [showVideo, setShowVideo] = useState(true);
 
   useEffect(() => {
@@ -37,7 +38,7 @@ function ModalContent({ closeModal, movie }) {
               <PlayVideo movie={movie} />
             ) : (
               <img
-                className="w-fit h-96 block rounded-sm"
+                className="block rounded-sm w-fit h-96"
                 src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
                 alt="Movie Thumbnail"
               />
@@ -52,9 +53,9 @@ function ModalContent({ closeModal, movie }) {
             {movie?.title || movie.name}
           </h2>
           <div className="z-10 hover:bg-blue-500 focus:ring-2 focus:ring-black">
-            <PlayButton />
+            <PlayButton setIsPlaying={setIsPlaying} />
           </div>
-          <AddToList movie={movie} />
+          <AddToList movie={movie} handleCloseModal={closeModal} />
           <button className="absolute flex items-center justify-center w-10 h-12 mb-2 font-sans text-xl font-bold text-white top-80 left-60 ">
             <BsHandThumbsUp
               className="text-4xl hover:text-green-600 "

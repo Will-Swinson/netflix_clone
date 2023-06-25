@@ -16,7 +16,7 @@ export default function SignUpPlanPage2() {
 
   return (
     <div className="flex flex-col h-screen">
-      <nav className="nav nav-3">
+      <nav className="nav nav-3 bg-white">
         <Link to="/">
           <img
             className="logo"
@@ -28,22 +28,23 @@ export default function SignUpPlanPage2() {
           Sign In
         </Link>
       </nav>
-      <section className="flex items-start justify-center h-full">
+      <section className="flex items-start bg-white justify-center h-full">
         <form
           onSubmit={formik.handleSubmit}
-          className="flex flex-col items-start justify-center mt-20 "
+          className="flex flex-col items-center justify-center mt-20 mb-20"
         >
-          <p className="flex text-xs ">
-            STEP&nbsp;<p className="font-bold">1&nbsp;</p>OF&nbsp;{" "}
-            <p className="font-bold">3</p>
+          <p className="flex text-xs w-full justify-start">
+            STEP&nbsp;
+            <span className="font-bold">1&nbsp;</span>
+            OF&nbsp;<span className="font-bold">3</span>
           </p>
-          <h2 className="flex-wrap w-[480px] mt-2 mb-4 text-3xl font-bold whitespace-normal">
+          <h2 className="w-[70%] md:w-[480px] mt-2 mb-4 text-3xl text-center  font-bold whitespace-normal">
             Create a password to start your membership
           </h2>
-          <p className="text-xl font-semibold w-[380px] ">
+          <p className="text-xl font-semibold text-center w-[80%] md:w-[380px]">
             Just a few more steps and you're done! We hate paperwork, too.
           </p>
-          <div className={`${hasErrorStyle} flex flex-col w-full`}>
+          <div className={`${hasErrorStyle} flex flex-col w-3/4 md:w-full`}>
             <input
               id="inputSignup"
               name="email"
@@ -52,10 +53,10 @@ export default function SignUpPlanPage2() {
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-            ></input>
+            />
             {formik.errors.email && formik.errors.email}
           </div>
-          <div className={`${hasErrorStylePass} flex flex-col w-full`}>
+          <div className={`${hasErrorStylePass} flex flex-col w-3/4 md:w-full`}>
             <input
               name="password"
               id="inputSignup"
@@ -65,15 +66,16 @@ export default function SignUpPlanPage2() {
               value={formik.values.password}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-            ></input>
+            />
             {formik.errors.password && formik.errors.password}
           </div>
-          <button className="w-full rounded mt-6 h-[75px] text-3xl font-semibold text-white bg-netflix-red">
+          <button className="w-3/4 md:w-full rounded mt-6 h-16 md:h-[75px] text-3xl font-semibold text-white bg-netflix-red">
             Next
           </button>
         </form>
       </section>
-      <footer className="footer footer-gray margin-top-1">
+
+      <footer className="footer footer-gray ">
         <div className="footer-container margin-inline">
           <p>
             Questions? <br />

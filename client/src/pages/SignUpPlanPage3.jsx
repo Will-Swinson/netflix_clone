@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 export default function SignUpPlanPage3() {
   return (
-    <div className="flex flex-col h-screen">
-      <nav className="nav nav-3">
+    <div className="flex flex-col h-screen ">
+      <nav className="nav nav-3 bg-white">
         <Link to="/">
           <img
             className="logo"
@@ -18,8 +18,8 @@ export default function SignUpPlanPage3() {
           Sign In
         </Link>
       </nav>
-      <section className="flex items-start justify-center h-full">
-        <form className="flex flex-col items-center justify-center mt-20 ">
+      <section className="flex items-start bg-white justify-center h-full">
+        <form className="flex flex-col items-center justify-center mt-20 mb-20">
           <img src={checkMarkImg} className="mb-8 w-14" />
           <p className="flex text-md ">
             STEP&nbsp;<p className="font-bold">2&nbsp;</p>OF&nbsp;{" "}
@@ -46,14 +46,14 @@ export default function SignUpPlanPage3() {
               Enjoy Netflix on all your devices.
             </p>
           </div>
-          <Link className="w-full h-full" to="/signup4">
+          <Link className="w-3/4 h-full" to="/signup4">
             <button className="w-full rounded mt-6 h-[75px] text-3xl font-semibold text-white bg-netflix-red">
               Next
             </button>
           </Link>
         </form>
       </section>
-      <footer className="footer footer-gray margin-top-1">
+      <footer className="footer footer-gray ">
         <div className="footer-container margin-inline">
           <p>
             Questions? <br />

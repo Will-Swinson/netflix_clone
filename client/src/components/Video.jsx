@@ -8,27 +8,27 @@ function PlayVideo({ movie }) {
   const [shouldPlay, setShouldPlay] = useState(true);
   const playerRef = useRef(null);
   const { isMuted } = useMovies();
-  useEffect(() => {
-    if (isPlaying) {
-      setShouldPlay(true);
-    }
-  }, [isPlaying]);
+  // useEffect(() => {
+  //   if (isPlaying) {
+  //     setShouldPlay(true);
+  //   }
+  // }, [isPlaying]);
 
-  useEffect(() => {
-    if (shouldPlay) {
-      playerRef.current.seekTo(0);
-    }
-  }, [shouldPlay]);
+  // useEffect(() => {
+  //   if (shouldPlay) {
+  //     playerRef.current.seekTo(0);
+  //   }
+  // }, [shouldPlay]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShouldPlay(false);
-    }, 10000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShouldPlay(false);
+  //   }, 10000);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [shouldPlay]);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [shouldPlay]);
 
   return (
     <div className="w-full h-96">
@@ -38,9 +38,8 @@ function PlayVideo({ movie }) {
         width="100%"
         height="100%"
         controls={false}
-        playing={shouldPlay}
+        playing={isPlaying}
         muted={isMuted}
-        loop={true}
         // light={true}
       />
     </div>

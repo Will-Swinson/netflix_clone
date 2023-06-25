@@ -7,6 +7,6 @@ import {
 
 const router = express.Router();
 
-router.get("/", getMyList).post("/", addToList).delete("/", removeFromList);
+router.get("/", getMyList).post("/", addToList).delete("/:id", removeFromList);
 
 export default router;

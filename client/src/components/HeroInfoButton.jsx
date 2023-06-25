@@ -22,28 +22,27 @@ function HeroInfoButton({ movie }) {
   };
 
   return (
-    <div>
+    <>
       <button
         onClick={openModal}
-        className="flex bg-gray-600 text-white bg-opacity-70 px-4 py-2 rounded
-           w-42 h-12 items-center justify-center text-lg"
+        className="flex items-center justify-center h-12 px-4 py-2 text-lg text-white bg-gray-600 rounded bg-opacity-70 w-42"
       >
-        <IoMdInformationCircleOutline className="text-4xl mr-2" />
-        <span className="opacity-100 font-bold">More Info</span>
+        <IoMdInformationCircleOutline className="mr-2 text-4xl" />
+        <span className="font-bold opacity-100">More Info</span>
       </button>
       <ReactModal
         ariaHideApp={false}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         overlayClassName="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center"
-        className="p-0 flex bg-[#141414] rounded-lg  h-5/6  text-white overflow-auto justify-center "
-        contentClassName="flex flex-col h-full"
+        className="p-0 flex bg-[#141414] rounded-lg  h-full text-white overflow-auto justify-center "
+        contentClassName="flex flex-col "
       >
         <div>
           <ModalContent closeModal={closeModal} movie={movie} />
         </div>
       </ReactModal>
-    </div>
+    </>
   );
 }
 
