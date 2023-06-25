@@ -74,15 +74,15 @@ function ModalContent({ closeModal, movie }) {
           <LuSubtitles className="font-sans text-lg" />
         </div>
         <div className="flex flex-row">
-          <div className="ml-8 w-96">{movie.overview}</div>
+          <div className="ml-8 w-96">{movie?.overview}</div>
           <div>
             <div className="flex flex-row ml-4">
               <div className="text-gray-500 underline">Cast:</div>
-              <div className="ml-2"> jay, jay, will, david, leandro </div>
+              <div className="ml-2"> jay, jay, will, david, leandro</div>
             </div>
             <div className="flex flex-row ml-4">
-              <div className="text-gray-500 underline">Genre:</div>
-              <div className="ml-2"> spooky </div>
+              <div className="text-gray-500 underline">Genres:</div>
+              <div className="ml-2"> {movie?.genre_names.join(",")} </div>
             </div>
             <div className="flex flex-row ml-4">
               <div className="text-gray-500 underline">This movie is:</div>
