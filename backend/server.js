@@ -48,7 +48,7 @@ app.get("/api/insert", async (req, res) => {
 
     for (const movie of movieData) {
       // You can use the result.key value to insert into the database or perform other operations
-      for (const keyword of movie.keywords) {
+      for (const keyword of movie.results) {
         const selectedMovies = await sql`
           UPDATE api_data
           SET keywords = ARRAY_APPEND(keywords, ${keyword.name})
