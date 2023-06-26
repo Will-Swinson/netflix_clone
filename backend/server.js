@@ -27,7 +27,7 @@ const options = {
 app.get("/api/insert", async (req, res) => {
   try {
     // Make a query for all movie IDs
-    const movieIds = await sql`SELECT id FROM api_data WHERE type < 6;`;
+    const movieIds = await sql`SELECT id FROM api_data WHERE type > 5;`;
 
     console.log(movieIds);
 
@@ -36,7 +36,7 @@ app.get("/api/insert", async (req, res) => {
     // Make an API request with a loop for each movie ID
     for (const movieId of movieIds) {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId.id}/keywords`,
+        `https://api.themoviedb.org/3/tv/${movieId.id}/keywords`,
         options
       );
 
