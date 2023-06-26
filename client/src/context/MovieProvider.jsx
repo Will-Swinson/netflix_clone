@@ -23,8 +23,69 @@ export function MovieProvider({ children }) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
 
+  const [currProfileData, setCurrProfileData] = useState({});
+  const [profileName, setProfileName] = useState("");
+  const [profileIconRandom, setProfileIconRandom] = useState("");
+  const [usersProfiles, setUsersProfiles] = useState([]);
+
   const location = useLocation();
   const navigate = useNavigate();
+
+  // console.log("Profile Data:", profileData);
+
+  // useEffect(() => {
+  //   if (profileData.name === "" || profileData.icon === "") {
+  //     return;
+  //   }
+
+  //   setUsersProfiles((prevUsersProfiles) => {
+  //     console.log("Profile Data:", profileData);
+  //     return [...prevUsersProfiles, profileData];
+  //   });
+  // }, [profileData]);
+
+  async function handleAddProfile(e) {
+    e.preventDefault();
+
+    // Get token to send
+    const token = JSON.parse(sessionStorage.getItem("token"));
+
+    // If no token throw an error
+    if (!token) {
+      throw new Error("No token found");
+    }
+
+    // if profile values are empty, return
+    if (profileName === "" || profileIconRandom === "") {
+      return;
+    }
+
+    // Make a object to send with the request
+    const newProfile = {
+      name: profileName,
+      icon: profileIconRandom,
+    };
+
+    console.log("Profile Data:", newProfile);
+
+    // Send Axios Post Request
+    const response = await axios.post("/api/user-profile", newProfile, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log(response.data);
+    // setUsersProfiles((prevUsersProfiles) => [...prevUsersProfiles, newProfile]);
+
+    // Clear the form
+    setProfileName("");
+    setProfileIconRandom("");
+
+    // Navigate to next page
+
+    // navigate("/profile-login");
+  }
 
   async function handleSignup(formInputs) {
     try {
@@ -180,6 +241,15 @@ export function MovieProvider({ children }) {
         isMuted,
         handleMute,
         setMyList,
+        handleAddProfile,
+        setProfileName,
+        setProfileIconRandom,
+        currProfileData,
+        setCurrProfileData,
+        profileName,
+        profileIconRandom,
+        usersProfiles,
+        setUsersProfiles,
       }}
     >
       {children}
