@@ -10,6 +10,7 @@ export default function ProfileIcon() {
   }
   function handleCloseModal() {
     setIsOpened(false);
+    // location.reload();
   }
 
   return (

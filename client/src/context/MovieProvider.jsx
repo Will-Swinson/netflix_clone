@@ -44,7 +44,7 @@ export function MovieProvider({ children }) {
   //   });
   // }, [profileData]);
 
-  async function handleAddProfile(e) {
+  async function handleAddProfile(e, handleCloseModal) {
     e.preventDefault();
 
     // Get token to send
@@ -82,9 +82,11 @@ export function MovieProvider({ children }) {
     setProfileName("");
     setProfileIconRandom("");
 
+    // Close the modal
+    handleCloseModal();
     // Navigate to next page
 
-    // navigate("/profile-login");
+    // location.reload();
   }
 
   async function handleSignup(formInputs) {
