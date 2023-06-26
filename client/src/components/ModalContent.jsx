@@ -78,11 +78,14 @@ function ModalContent({ closeModal, movie }) {
           <div>
             <div className="flex flex-row ml-4">
               <div className="text-gray-500 underline">Cast:</div>
-              <div className="ml-2"> jay, jay, will, david, leandro</div>
+              <div className="ml-2">
+                {" "}
+                {movie?.cast_names?.slice(0, 3)?.join(",")}
+              </div>
             </div>
             <div className="flex flex-row ml-4">
               <div className="text-gray-500 underline">Genres:</div>
-              <div className="ml-2"> {movie?.genre_names.join(",")} </div>
+              <div className="ml-2"> {movie?.genre_names?.join(",")} </div>
             </div>
             <div className="flex flex-row ml-4">
               <div className="text-gray-500 underline">This movie is:</div>

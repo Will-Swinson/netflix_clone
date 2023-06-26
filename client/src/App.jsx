@@ -31,6 +31,8 @@ function App() {
   } = useMovies();
   const navigate = useNavigate();
 
+  console.log("Movies:", movies);
+
   useEffect(() => {
     // Fetch data from API
     getAllMovieAndShows().then((data) => {
