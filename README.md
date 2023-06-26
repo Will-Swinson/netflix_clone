@@ -19,7 +19,22 @@ This project was built on inspiration from Netflix, so you can watch movies, tv 
 
 ## Demo
 
-![Netflix_Demo](https://im.ezgif.com/tmp/ezgif-1-a4158f32ed.gif)
+![Netflix_Demo](https://im2.ezgif.com/tmp/ezgif-2-d77eefd9a9.gif)
+
+
+
+
+![Netflix_Demo](https://im2.ezgif.com/tmp/ezgif-2-47a3a9ec20.gif)
+
+
+
+
+![Netflix_Demo](https://im2.ezgif.com/tmp/ezgif-2-bcc75d08f7.gif)
+
+
+
+
+![Netflix_Demo](https://im2.ezgif.com/tmp/ezgif-2-b2081e32a8.gif)
 
 ## Installation
 

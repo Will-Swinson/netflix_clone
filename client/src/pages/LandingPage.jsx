@@ -47,11 +47,11 @@ export default function LandingPage() {
           height: "55vh",
         }}
       >
-        <nav className="flex relative w-full xl:h-[100px] justify-between items-center ">
-          <div className=" w-[100px] sm:w-[125px]  xl:w-[175px] p-2 ml-2 xl:ml-[190px] mt-4 ">
+        <nav className="flex relative w-full xl:h-[60px] xl:mb-20 justify-between items-center ">
+          <div className=" w-[100px] sm:w-[125px]  xl:w-[135px] p-2 ml-2 xl:ml-[100px] mt-2 ">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png" />
           </div>
-          <div className=" w-auto relative flex mr-4 sm:mr-10 xl:mr-[300px] mt-4 ">
+          <div className=" w-auto relative flex mr-4 sm:mr-10 xl:mr-[300px] mt-4">
             <BsGlobe2 className="text-white h-4 w-4  absolute top-2 left-1.5 " />
             <select className="flex justify-center items-center selector-class h-8 mr-2 w-[120px] rounded text-white bg-black bg-opacity-50 border-[0.5px] border-white text-[14px] font-bold text-center">
               <option>English</option>
@@ -75,9 +75,9 @@ export default function LandingPage() {
               membership.
             </p>
           </div>
-          <form className=" flex flex-col sm:flex-row  items-center sm:items-start justify-center w-full xl:w-full h-full ">
+          <form className=" flex flex-col sm:flex-row   items-center sm:items-start justify-center w-full xl:w-full h-full ">
             <div
-              className={`flex flex-col xl:w-1/4  sm:w-2/5 items-center xl:items-start xl:mr-20 font-bold ${hasErrorStyle}   `}
+              className={`flex flex-col xl:w-1/5  sm:w-2/5 items-center xl:items-start  font-bold ${hasErrorStyle}   `}
             >
               <input
                 id="inputSignup"
@@ -93,7 +93,7 @@ export default function LandingPage() {
             </div>
             <Link
               to="/signup"
-              className="w-3/5  flex justify-center items-center xl:w-[250px] xl:ml-4 mt-4 sm:m-0 sm:mr-20
+              className="w-3/5  flex justify-center items-center xl:w-[250px]  mt-4 sm:m-0 sm:mr-20
               h-[55px] sm:w-[175px] ml-2 rounded bg-red-600 font-bold text-xl
               md:text-1xl"
             >
@@ -152,10 +152,10 @@ export default function LandingPage() {
         <div className="w-full h-full border-b-8 border-gray-600  text-white flex flex-col mx-auto justify-center items-center text-center xl:flex-row-reverse">
           <div className="flex flex-col xl:flex-row-reverse items-center justify-center w-full h-full xl:items-start mt-10 mb-10">
             <div className="flex flex-col xl:justify-center xl:mt-20  xl:items-center xl:mr-20  w-full">
-              <h2 className="mb-10 text-3xl xl:text-5xl font-bold">
+              <h2 className="mb-10 text-3xl xl:text-5xl font-bold ">
                 Watch everywhere
               </h2>
-              <p className="xl:w-3/4  text-lg xl:text-2xl xl:text-start">
+              <p className="xl:w-3/4  text-lg xl:text-2xl xl:text-center">
                 Stream unlimited movies and TV shows on your phone, tablet,
                 laptop, and TV.
               </p>
