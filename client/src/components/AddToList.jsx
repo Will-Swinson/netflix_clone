@@ -18,7 +18,6 @@ function AddToList({ movie, handleCloseModal }) {
   };
 
   async function handleDeleteMovie(movie) {
-    console.log(movie.id);
     const token = JSON.parse(sessionStorage.getItem("token"));
     const result = await axios.delete(`/api/my-list/${movie.id}`, {
       headers: {
@@ -26,7 +25,6 @@ function AddToList({ movie, handleCloseModal }) {
       },
     });
 
-    console.log(result);
     const userListMovieIds = result.data.newList;
 
     const myListMovies = userListMovieIds.flatMap((listId) =>
@@ -35,7 +33,6 @@ function AddToList({ movie, handleCloseModal }) {
 
     setMyList(myListMovies);
     handleCloseModal(false);
-    console.log(myListMovies);
   }
 
   return (

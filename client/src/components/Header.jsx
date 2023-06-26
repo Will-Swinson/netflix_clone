@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useMovies } from "../context/MovieProvider.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAllMovieAndShows } from "../utils/getMovieData.jsx";
 import DefaultDropdown from "./DefaultDropdown.jsx";
 
@@ -11,9 +11,8 @@ function Header() {
   const [show, setShow] = useState(window.innerWidth);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const { setMovies } = useMovies();
-
-  console.log(searchValue);
+  const { setMovies, currProfileData } = useMovies();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (searchValue.length > 0) {
@@ -112,25 +111,21 @@ function Header() {
             <li className="ml-2 ">Kids</li>
             <li className="ml-2 ">DVD</li>
           </ul>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 ml-2 md:w-6 xl:w-[25px]"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
-            />
-          </svg>
+
           <img
             className="w-6 ml-2 mr-4 md:w-8 xl:w-10 xl:mr-6"
-            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+            src={currProfileData?.icon}
             alt=""
           />
+          <h2
+            onClick={() => {
+              sessionStorage.clear();
+              navigate("/");
+            }}
+            className="underline mr-2 cursor-pointer"
+          >
+            Logout
+          </h2>
         </div>
       </div>
     </div>

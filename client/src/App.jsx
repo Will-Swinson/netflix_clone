@@ -14,17 +14,22 @@ import SignUpPlanPage2 from "./pages/SignUpPlanPage2.jsx";
 import SignUpPlanPage3 from "./pages/SignUpPlanPage3.jsx";
 import SignUpPlanPage4 from "./pages/SignUpPlanPage4.jsx";
 import SignUpPlanPaymentPage from "./pages/SignUpPlanPaymentPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 import { Routes, Route } from "react-router-dom";
-
+import axios from "axios";
 import "./App.css";
 import NetflixProfile from "./components/NetflixProfile.jsx";
 import TVShowsPage from "./pages/TVShowsPage.jsx";
 function App() {
-  const { movies, setMovies } = useMovies();
+  const {
+    movies,
+    setMovies,
+    setUsersProfiles,
+    profileName,
+    randomIconProfile,
+  } = useMovies();
   const navigate = useNavigate();
-
-  console.log(movies);
 
   useEffect(() => {
     // Fetch data from API
@@ -33,6 +38,24 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    // Fetch data for current users profiles
+    async function getProfileData() {
+      const response = await axios.get("/api/user-profile", {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            sessionStorage.getItem("token")
+          )}`,
+        },
+      });
+
+      console.log(response.data.userProfiles[0].profiles);
+
+      setUsersProfiles(response.data.userProfiles[0]?.profiles);
+    }
+    getProfileData();
+  }, [profileName, randomIconProfile]);
+
   // Check if user is logged in
   useEffect(() => {
     const currentUser =
@@ -40,15 +63,19 @@ function App() {
         ? JSON.parse(sessionStorage.getItem("token"))
         : sessionStorage.clear();
 
+    console.log("Current User:", currentUser);
+
+    const hashPath = window.location.hash.slice(1); // Get the path after the hash symbol
+
     if (
       !currentUser &&
-      window.location.pathname !== "/signin" &&
-      window.location.pathname !== "/signup" &&
-      window.location.pathname !== "/signup2" &&
-      window.location.pathname !== "/signup3" &&
-      window.location.pathname !== "/signup4" &&
-      window.location.pathname !== "/payment" &&
-      window.location.pathname !== "/"
+      hashPath !== "/signin" &&
+      hashPath !== "/signup" &&
+      hashPath !== "/signup2" &&
+      hashPath !== "/signup3" &&
+      hashPath !== "/signup4" &&
+      hashPath !== "/payment" &&
+      hashPath !== "/"
     ) {
       navigate("/");
     }
@@ -68,7 +95,7 @@ function App() {
         <Route path="/movies" element={<MoviesPage />} />
         <Route path="/new-and-popular" element={<NewAndPopularPage />} />
         <Route path="/my-list" element={<MyListPage />} />
-        <Route path="/profile-login" element={<NetflixProfile />} />
+        <Route path="/profile-login" element={<ProfilePage />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
     </>

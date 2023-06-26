@@ -17,7 +17,6 @@ function TopRatedMovies({ title, id }) {
       );
     });
 
-  console.log(popularMovies);
 
   function scrollLeft() {
     const slider = document.getElementById("slider" + id);

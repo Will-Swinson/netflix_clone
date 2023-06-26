@@ -3,7 +3,6 @@ import ReactPlayer from "react-player";
 import { useMovies } from "../context/MovieProvider";
 
 function PlayVideo({ movie }) {
-  console.log(movie);
   const { isPlaying } = useMovies();
   const [shouldPlay, setShouldPlay] = useState(true);
   const playerRef = useRef(null);

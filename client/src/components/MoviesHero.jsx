@@ -54,7 +54,6 @@ function Hero() {
             <button
               onClick={() =>
                 setIsPlaying((prevIsPlaying) => {
-                  console.log("prevIsPlaying", prevIsPlaying);
                   return !prevIsPlaying;
                 })
               }

@@ -29,6 +29,9 @@ export const createUser = async (req, res) => {
       newUser.id
     })`;
 
+    // Create users profile
+    await sql`INSERT INTO user_profiles (user_id) VALUES (${newUser.id})`;
+
     // give token to user on signup
     const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET);
 

@@ -91,9 +91,15 @@ export default function LandingPage() {
               />
               {formik.errors.email ? formik.errors.email : null}
             </div>
-            <button className="w-3/5 xl:w-[250px] xl:ml-4 mt-4 sm:m-0 sm:mr-20 h-[55px] sm:w-[175px] ml-2 rounded bg-red-600 font-bold text-xl md:text-1xl">
-              <Link to="/signup">Get Started</Link>
-            </button>
+            <Link
+              to="/signup"
+              className="w-3/5  flex justify-center items-center xl:w-[250px] xl:ml-4 mt-4 sm:m-0 sm:mr-20
+              h-[55px] sm:w-[175px] ml-2 rounded bg-red-600 font-bold text-xl
+              md:text-1xl"
+            >
+              {" "}
+              Get Started
+            </Link>
           </form>
         </div>
       </div>
