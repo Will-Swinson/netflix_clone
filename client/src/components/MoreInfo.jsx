@@ -12,7 +12,7 @@ function MoreInfoButton({ movie }) {
 
   const openModal = () => {
     setModalIsOpen(true);
-    console.log(movie.title);
+    console.log(movie);
   };
 
   const closeModal = () => {
