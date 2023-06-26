@@ -15,6 +15,7 @@ import PlayVideo from "./Video.jsx";
 import MuteButton from "./MuteButton.jsx";
 
 function ModalContent({ closeModal, movie }) {
+  console.log(movie);
   const { movies, setIsPlaying } = useMovies();
   const [showVideo, setShowVideo] = useState(true);
 
@@ -88,8 +89,13 @@ function ModalContent({ closeModal, movie }) {
               <div className="ml-2"> {movie?.genre_names?.join(",")} </div>
             </div>
             <div className="flex flex-row ml-4">
-              <div className="text-gray-500 underline">This movie is:</div>
-              <div className="ml-2"> bad </div>
+              <div className="text-gray-500 underline">Tags:</div>
+              <div className="ml-2">
+                {" "}
+                {movie?.keywords?.slice(0, 5)?.join(",")
+                  ? movie?.keywords?.slice(0, 5)?.join(",")
+                  : "Fun to Watch!"}{" "}
+              </div>
             </div>
           </div>
         </div>
