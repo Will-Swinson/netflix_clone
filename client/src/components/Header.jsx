@@ -57,7 +57,7 @@ function Header() {
     <div className="fixed top-0 z-20 w-screen bg-black ">
       <div className="flex items-center justify-between w-full h-20 text-lg text-white">
         <img
-          className="w-10 h-4 ml-6 flex-2 md:w-8 xl:h-8 xl:w-32"
+          className="w-10 h-4 ml-6 flex-2 md:w-12 xl:h-8 xl:w-32"
           src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png"
           alt="netflix-logo"
         />
@@ -122,7 +122,7 @@ function Header() {
               sessionStorage.clear();
               navigate("/");
             }}
-            className="underline mr-2 cursor-pointer"
+            className="hover:underline mr-2 cursor-pointer md:mr-10 bg-netflix-red px-2 py-1 rounded-md font-signInFont"
           >
             Logout
           </h2>
