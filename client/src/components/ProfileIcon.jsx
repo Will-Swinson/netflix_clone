@@ -6,12 +6,6 @@ import { useMovies } from "../context/MovieProvider.jsx";
 export default function ProfileIcon() {
   const { usersProfiles, setCurrProfileData } = useMovies();
 
-  console.log("Users Profiles:", typeof usersProfiles);
-
-  usersProfiles.forEach((profile) => {
-    console.log("Profile:", profile);
-  });
-
   if (!usersProfiles) {
     return <></>;
   }
