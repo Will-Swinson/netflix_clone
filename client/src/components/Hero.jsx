@@ -60,7 +60,7 @@ function Hero() {
               }
               className="flex items-center justify-center w-32 h-12 px-4 py-2 mr-2 text-xl font-bold text-black bg-white rounded z-10"
             >
-              <BsFillPlayFill className="text-5xl" />
+              <BsFillPlayFill className="text-5xl z-0" />
               Play
             </button>
 
