@@ -6,21 +6,21 @@ import { useMovies } from "../context/MovieProvider.jsx";
 export default function ProfileIcon() {
   const { usersProfiles, setCurrProfileData } = useMovies();
 
-  console.log("Users Profiles:", usersProfiles);
+  console.log("Users Profiles:", typeof usersProfiles);
+
+  usersProfiles.forEach((profile) => {
+    console.log("Profile:", profile);
+  });
 
   if (!usersProfiles) {
     return <></>;
   }
 
-  const profiles = usersProfiles.map((profile) => JSON.parse(profile));
-
-  console.log("Users Profiles:", profiles);
-
   function handleCurrUsersProfile(profile) {
     setCurrProfileData(profile);
   }
 
-  const profileList = profiles.map((profile) => {
+  const profileList = usersProfiles.map((profile) => {
     return (
       <>
         <li className=" text-center w-full h-full">
@@ -46,5 +46,5 @@ export default function ProfileIcon() {
     );
   });
 
-  return <>{profiles && profileList}</>;
+  return <>{usersProfiles && profileList}</>;
 }
