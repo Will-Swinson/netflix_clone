@@ -39,7 +39,7 @@ function ModalContent({ closeModal, movie }) {
               <PlayVideo movie={movie} />
             ) : (
               <img
-                className="block rounded-sm w-fit h-96"
+                className="block rounded-sm w-full h-96"
                 src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
                 alt="Movie Thumbnail"
               />
@@ -75,7 +75,7 @@ function ModalContent({ closeModal, movie }) {
           <LuSubtitles className="font-sans text-lg" />
         </div>
         <div className="flex flex-row">
-          <div className="ml-8 w-96">{movie?.overview}</div>
+          <div className="ml-8 w-[200px]">{movie?.overview}</div>
           <div>
             <div className="flex flex-row ml-4">
               <div className="text-gray-500 underline">Cast:</div>
