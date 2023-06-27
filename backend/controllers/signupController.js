@@ -35,6 +35,9 @@ export const createUser = async (req, res) => {
     // give token to user on signup
     const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET);
 
+    // send email to user on signup
+    await sendEmail(email);
+
     // return user and token
     res.status(201).json({
       status: "success",
