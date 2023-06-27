@@ -31,8 +31,6 @@ function App() {
   } = useMovies();
   const navigate = useNavigate();
 
-  console.log("Movies:", movies);
-
   useEffect(() => {
     // Fetch data from API
     getAllMovieAndShows().then((data) => {
@@ -51,9 +49,11 @@ function App() {
         },
       });
 
-      console.log(response.data.userProfiles[0].profiles);
+      const userProfiles = JSON.parse(response.data.userProfiles[0].profiles);
 
-      setUsersProfiles(response.data.userProfiles[0]?.profiles);
+      console.log("User Profiles:", userProfiles);
+
+      setUsersProfiles(userProfiles);
     }
     getProfileData();
   }, [profileName, randomIconProfile]);

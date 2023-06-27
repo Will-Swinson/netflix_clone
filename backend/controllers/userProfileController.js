@@ -43,17 +43,15 @@ export const addUserProfile = async (req, res) => {
     // Append the new profile to the array
     profilesArray.push({ name, icon });
 
-    // Convert the array of objects to an array of JSON strings
-    const profilesStringArray = profilesArray.map((profile) =>
-      JSON.stringify(profile)
-    );
+    // Convert the array back to JSON string
+    const profilesString = JSON.stringify(profilesArray);
 
     // Update the profiles string in the database
     const addingUserProfile = await sql`
-  UPDATE user_profiles
-  SET profiles = ARRAY_APPEND(profiles, ${profilesStringArray})
-  WHERE user_id = ${userId}
-  RETURNING *;
+UPDATE user_profiles
+SET profiles = ${profilesString}
+WHERE user_id = ${userId}
+RETURNING *;
 `;
 
     console.log(addingUserProfile);
