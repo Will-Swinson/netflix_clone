@@ -57,12 +57,12 @@ function Header() {
     <div className="fixed top-0 z-20 w-screen bg-black ">
       <div className="flex items-center justify-between w-full h-20 text-lg text-white">
         <img
-          className="w-10 h-4 ml-6 flex-2 md:w-8 xl:h-8 xl:w-32"
+          className="w-10 h-4 ml-6 flex-2 md:w-12 xl:h-8 xl:w-32"
           src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png"
           alt="netflix-logo"
         />
         {show < 665 ? (
-          <div className="flex items-center justify-start w-full h-full ml-10">
+          <div className="flex items-center justify-start w-full h-full ml-2">
             <DefaultDropdown />
           </div>
         ) : (
@@ -90,15 +90,17 @@ function Header() {
         <div className="flex items-center justify-end flex-2 h-1/2 ">
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="relative h-full flex items-center"
+            className="relative h-full flex items-center "
           >
             <input
               ref={inputRef}
               onChange={handleSearch}
               value={searchValue}
               type="text"
-              className={`px-2 py-4 bg-black border-2 border-white opacity-90 transition-all duration-500 ease-in-out absolute right-10 h-full  transform ${
-                isSearchVisible ? "scale-x-100 " : "scale-x-0 opacity-0"
+              className={`px-2 py-4 bg-black border-2 border-white opacity-90 transition-all duration-500 ease-in-out absolute  h-full  transform ${
+                isSearchVisible
+                  ? "scale-x-100 top-[50px] right-[-22px] md:right-10 md:top-0"
+                  : "scale-x-0  top-[50px] right-[-22px] md:right-10 md:top-0 opacity-0"
               }`}
               placeholder="Search..."
             />
@@ -122,7 +124,7 @@ function Header() {
               sessionStorage.clear();
               navigate("/");
             }}
-            className="underline mr-2 cursor-pointer"
+            className="hover:underline mr-4 cursor-pointer md:mr-10 bg-netflix-red px-2 py-1 rounded-md font-signInFont"
           >
             Logout
           </h2>

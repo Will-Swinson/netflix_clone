@@ -3,15 +3,19 @@ import dotenv from "dotenv";
 
 dotenv.config({ path: "../.env" });
 
+// Html for email that gets presented on the email
 const html = `
 <div>
-<h2>Hello please click the link below to sign up now!</h2>
-<a href="http://localhost:3000/signup">Sign Up</a>
+<h2>Thank you for signing up!</h2>
+<a href="/signup">Sign Up</a>
 </div>
 `;
 
+// Function that sends email to the users email
+
 async function sendEmail(user) {
   try {
+    // Setting for SMTP Server to send emails
     const transporter = nodeMailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
@@ -22,6 +26,7 @@ async function sendEmail(user) {
       },
     });
 
+    // Contents of the email
     const info = await transporter.sendMail({
       from: "Netflix Team <",
       to: user,
