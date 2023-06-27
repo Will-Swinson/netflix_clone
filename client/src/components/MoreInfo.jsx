@@ -29,7 +29,7 @@ function MoreInfoButton({ movie }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         overlayClassName="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center"
-        className="p-0 flex bg-[#141414] rounded-lg h-5/6 text-white justify-center "
+        className="p-0 z-30 flex bg-[#141414] rounded-lg h-5/6 text-white justify-center "
         contentLabel="Modal"
       >
         <div className="flex flex-col">
