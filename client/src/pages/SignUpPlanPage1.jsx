@@ -1,5 +1,5 @@
 import React from "react";
-import computerImg from "../assets/devices-img.png";
+import computerImg from "../assets/devices-img.webp";
 import { Link } from "react-router-dom";
 
 export default function SignUpPlanPage1() {

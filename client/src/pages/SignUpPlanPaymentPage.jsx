@@ -1,5 +1,5 @@
 import React from "react";
-import lockImg from "../assets/Lock.png";
+import lockImg from "../assets/Lock.webp";
 import { handleStripePayment } from "../utils/Stripe.jsx";
 import { useMovies } from "../context/MovieProvider.jsx";
 import {

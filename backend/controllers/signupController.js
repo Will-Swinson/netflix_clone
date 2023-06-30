@@ -24,6 +24,7 @@ export const createUser = async (req, res) => {
       await sql`INSERT INTO users ( email, password) VALUES ( ${email}, ${password}) RETURNING *;`;
 
     console.log(newUser);
+    
     // Create users mylist
     await sql`INSERT INTO my_list (created, user_id) VALUES (${Date.now()},${
       newUser.id

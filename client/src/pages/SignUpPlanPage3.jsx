@@ -1,5 +1,5 @@
 import React from "react";
-import checkMarkImg from "../assets/checkmark.png";
+import checkMarkImg from "../assets/checkmark.webp";
 import { IoMdCheckmark } from "react-icons/io";
 import { Link } from "react-router-dom";
 
