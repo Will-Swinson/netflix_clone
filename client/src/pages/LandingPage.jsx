@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsGlobe2 } from "react-icons/bs";
-import bluePurpleGradientBackground from "../assets/download.jfif";
-import popcornImg from "../assets/popcorn_image.png";
-import appleVideoImg from "../assets/device-pile.png";
+import bluePurpleGradientBackground from "../assets/download.webp";
+import popcornImg from "../assets/popcorn_image.webp";
+import appleVideoImg from "../assets/device-pile.webp";
 import griddyGif from "../assets/griddy-gif.gif";
-import kidImg from "../assets/kid-img.png";
-import phoneImg from "../assets/phone-img.jpg";
+import kidImg from "../assets/kid-img.webp";
+import phoneImg from "../assets/phone-img.webp";
 import { IoIosArrowForward } from "react-icons/io";
 import FrequentlyAsked from "../components/FrequentlyAsked";
 import FrequentlyAskedButton from "../components/FrequentlyAskedButton";
