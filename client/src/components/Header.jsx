@@ -56,10 +56,15 @@ function Header() {
   return (
     <div className="fixed top-0 z-20 w-screen bg-black ">
       <div className="flex items-center justify-between w-full h-20 text-lg text-white">
+        <link
+          rel="preload"
+          as="image"
+          href="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png"
+        />
         <img
           className="w-10 h-4 ml-6 flex-2 md:w-12 xl:h-8 xl:w-32"
           src="https://upload.wikimedia.org/wikipedia/commons/6/67/NewNetflixLogo.png"
-          alt="netflix-logo"
+          alt="Image"
         />
         {show < 665 ? (
           <div className="flex items-center justify-start w-full h-full ml-2">
@@ -114,11 +119,11 @@ function Header() {
             <li className="ml-2 ">DVD</li>
           </ul>
 
-          <img
+          {/* <img
             className="w-6 ml-2 mr-4 md:w-8 xl:w-10 xl:mr-6"
             src={currProfileData?.icon}
             alt=""
-          />
+          /> */}
           <h2
             onClick={() => {
               sessionStorage.clear();

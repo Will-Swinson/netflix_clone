@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { BsFillPlayFill } from "react-icons/bs";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { useMovies } from "../context/MovieProvider.jsx";
